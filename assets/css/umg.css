@@ -55,5 +55,6 @@
 .phone-frame img {
   width: 100%;
   display: block;
+  max-height: none;
 }
 

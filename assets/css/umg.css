@@ -41,3 +41,19 @@
   border-radius: 8px;
   display: block;
 }
+
+.phone-frame {
+  width: 320px;
+  height: 600px;
+  border: 12px solid #000;
+  border-radius: 40px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  box-shadow: 0 0 18px rgba(0,0,0,0.15);
+  margin: 0 auto;
+}
+.phone-frame img {
+  width: 100%;
+  display: block;
+}
+

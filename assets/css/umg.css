@@ -44,8 +44,7 @@
 
 .phone-frame {
   width: 320px;
-  /* height: 600px; */
-  height: 520px;
+  height: 600px;
   border: 12px solid #000;
   border-radius: 40px;
   overflow-y: scroll;

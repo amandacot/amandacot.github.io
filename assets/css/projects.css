@@ -81,3 +81,13 @@ position: relative;
   padding-bottom: 0px;
 }
 
+.card-text-wrapper {
+  min-height: 120px;      /* tweak this number */
+  display: flex;
+  align-items: flex-start; /* or center if you want centered text */
+  justify-content: center;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+

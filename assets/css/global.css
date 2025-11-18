@@ -70,6 +70,29 @@ html {
 }
 .about-photo-wrap { display: flex; justify-content: center; }
 
+
+
+@media (max-width: 768px) {
+  .about-container.hero-about {
+    grid-template-columns: 1fr;    /* stack into one column */
+    row-gap: 1.75rem;
+    text-align: left;
+  }
+
+  .about-photo-wrap {
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+
+  .hero-about .descriptions {
+    max-width: 100%;
+  }
+}
+
+
+
+
+
 /* Social pills (match your chip/buttons style) */
 .social-row { margin-top: .75rem; display: flex; gap: .5rem; }
 .social {

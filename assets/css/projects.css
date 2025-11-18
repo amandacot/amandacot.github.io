@@ -75,3 +75,8 @@ position: relative;
 .page-title{
   padding: 30px;
 }
+
+.card-body {
+  flex: 0 0 auto !important;
+}
+

@@ -69,6 +69,7 @@ position: relative;
   width: auto;                   /* keep aspect ratio */
   object-fit: contain;           /* no cropping/stretching */
   display: block;
+  padding: 15px;
 }
 
 .page-title{

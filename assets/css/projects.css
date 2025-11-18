@@ -16,10 +16,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;   
   
 position: relative;
-  margin: 10px auto;
+  margin: 25px auto;
   background-color: #FFFFFF;   /* was #4E4E56 – now white to match your site */
   border-color: #EAE4FA;       /* soft lavender border instead of dark gray */
   border-width: 1px;

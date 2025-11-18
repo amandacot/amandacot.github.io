@@ -55,6 +55,22 @@ position: relative;
   box-shadow: 0 3px 8px rgba(143,116,181,0.2);
 }
 
+.card-logo-wrapper {
+  height: 140px;                 /* same logo area for every card */
+  display: flex;
+  align-items: center;           /* center vertically */
+  justify-content: center;       /* center horizontally */
+  margin: 1.5rem 0 1rem;         /* space above/below logo */
+}
+
+.card-logo {
+  max-height: 100%;              /* fill the 140px box, but not bigger */
+  max-width: 100%;               /* don’t overflow horizontally */
+  width: auto;                   /* keep aspect ratio */
+  object-fit: contain;           /* no cropping/stretching */
+  display: block;
+}
+
 .page-title{
   padding: 30px;
 }

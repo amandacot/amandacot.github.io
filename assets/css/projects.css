@@ -59,8 +59,7 @@ position: relative;
   height: 140px;                 /* same logo area for every card */
   display: flex;
   align-items: center;           /* center vertically */
-  justify-content: center;       /* center horizontally */
-  margin: 1.5rem 0 1rem;         /* space above/below logo */
+  justify-content: center;       /* center horizontally */        /* space above/below logo */
 }
 
 .card-logo {
@@ -82,12 +81,11 @@ position: relative;
 }
 
 .card-text-wrapper {
-  min-height: 120px;      /* tweak this number */
+ height: 140px;                 /* same logo area for every card */
   display: flex;
-  align-items: flex-start; /* or center if you want centered text */
-  justify-content: center;
-  text-align: center;
-  padding: 0 1rem;
+  align-items: center;           /* center vertically */
+  justify-content: center;       /* center horizontally */
+  margin: 1.5rem 0 1rem;         /* space above/below logo */
 }
 
 

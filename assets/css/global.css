@@ -26,22 +26,6 @@
   --nav-color-opaque: #2C2C2C;
 }
 
-.card-logo-wrapper {
-  height: 140px;            /* same “box” for every logo */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-}
-
-.card-logo {
-  max-height: 100%;
-  max-width: 100%;
-  object-fit: contain;
-  display: block;
-}
-
-
 html, body {
   min-height: 100vh;
   margin: 0;              /* remove default body margin */

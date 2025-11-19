@@ -339,7 +339,7 @@ display: flex !important;
 .carousel-inner > .item > img, .carousel-inner > .item > a > img {
   width: 100%; }
 
-.light {
+/* .light {
   /* --background-color: #B5AFD5; */
   --background-color: #F9F7FB;
   
@@ -356,14 +356,15 @@ display: flex !important;
   
   /* --nav-background: #FBFFF1; */
   --nav-background: #FFFFFF;
-  
+  /* 
   --nav-color: rgba(0, 0, 0, 0.9);
-  --nav-color-opaque: rgba(0, 0, 0, 0.9); }
+  --nav-color-opaque: rgba(0, 0, 0, 0.9); } */ */
 
 
 @media (max-width: 768px) {
   .navbar-icons {
-    position:absolute          /* a bit lower from the top edge */
+    position:absolute;          /* a bit lower from the top edge */
     right: 1rem;
     top:7%;
   }
+}

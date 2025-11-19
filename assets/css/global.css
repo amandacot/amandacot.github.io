@@ -359,3 +359,8 @@ display: flex !important;
   
   --nav-color: rgba(0, 0, 0, 0.9);
   --nav-color-opaque: rgba(0, 0, 0, 0.9); }
+
+.navbar-icons .navbar-collapse{
+    position: fixed;
+    margin-left: 82%;
+    margin-top: -18%;

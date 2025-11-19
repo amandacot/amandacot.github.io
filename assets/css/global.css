@@ -340,25 +340,25 @@ display: flex !important;
   width: 100%; }
 
 /* .light {
-  /* --background-color: #B5AFD5; */
+  --background-color: #B5AFD5; 
   --background-color: #F9F7FB;
   
-  /* --text-color: #FBFFF1; */
+  --text-color: #FBFFF1; 
   --text-color: #2C2C2C;
   
-  /* --foreground-accent: #008AB8; */
+  --foreground-accent: #008AB8; 
   --foreground-accent: #8F74B5;
   
-  /* --accent-bright: #FE9ABD; */
+  --accent-bright: #FE9ABD; 
   --accent-bright: #B7A3CC; 
   
   --accent-neutral: #D4D4D9;
   
-  /* --nav-background: #FBFFF1; */
+
   --nav-background: #FFFFFF;
-  /* 
+  
   --nav-color: rgba(0, 0, 0, 0.9);
-  --nav-color-opaque: rgba(0, 0, 0, 0.9); } */ */
+  --nav-color-opaque: rgba(0, 0, 0, 0.9); } */
 
 
 @media (max-width: 768px) {

@@ -44,13 +44,6 @@ html {
   gap: 0.6rem;
 }
 
-/* Make the two-column hero behave like the mockup */
-.hero-about {
-  grid-template-columns: 1.15fr 1fr;       /* text | photo */
-  align-items: center;
-  gap: clamp(1rem, 3vw, 3rem);
-  padding-top: clamp(1.5rem, 4vw, 3rem);
-}
 
 /* Bigger, comfy intro */
 .hero-about .descriptions {
@@ -70,15 +63,6 @@ html {
 }
 .about-photo-wrap { display: flex; justify-content: center; }
 
-
-
-@media (max-width: 768px) {
-  .about-container.hero-about {
-    grid-template-columns: 1fr;    /* stack into one column */
-    row-gap: 1.75rem;
-    text-align: left;
-  }
-
   .about-photo-wrap {
     justify-content: center;
     margin-top: 0.5rem;
@@ -86,6 +70,60 @@ html {
 
   .hero-about .descriptions {
     max-width: 100%;
+  }
+
+/* Two-column hero on desktop, stacked on mobile */
+.about-container.hero-about {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;       /* text | photo */
+  align-items: center;
+  gap: clamp(1rem, 3vw, 3rem);
+  padding: 5% 5% 3rem;
+}
+
+/* Bigger, comfy intro text */
+.hero-about .descriptions {
+  font-size: clamp(1.05rem, 1.2vw + 0.6rem, 1.25rem);
+  line-height: 1.7;
+  max-width: 56ch;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* Photo on the right, larger, clean framing */
+.profile-photo-lg {
+  width: min(400px, 40vw);
+  border-radius: 12px;
+  box-shadow: 0 12px 28px rgba(0,0,0,.18);
+  display: block;
+}
+
+.about-photo-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+/* Mobile: stack into one column, photo on top */
+@media (max-width: 768px) {
+  .about-container.hero-about {
+    grid-template-columns: 1fr;     /* stack */
+    row-gap: 1.75rem;
+    text-align: left;
+  }
+
+  /* Put photo above text on mobile */
+  .about-photo-wrap {
+    order: -1;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+
+  .hero-about .descriptions {
+    max-width: 100%;
+  }
+
+  .profile-photo-lg {
+    width: min(92vw, 480px);
   }
 }
 
@@ -125,13 +163,7 @@ html {
   text-decoration: none;
 }
 
-/* Mobile: stack with photo on top or bottom as you prefer */
-@media (max-width: 880px){
-  .hero-about { grid-template-columns: 1fr; }
-  .about-photo-wrap { order: -1; margin-bottom: 1rem; } /* photo above text; remove to keep below */
-  .profile-photo-lg { width: min(92vw, 480px); }
-  .social-row { gap: .6rem; }
-}
+
 
 
 

@@ -296,9 +296,8 @@ display: flex !important;
 /* adjust on small screens */
 @media (max-width: 768px) {
   .navbar-icons img {
-    width: 24px;
-    height: 24px;
-    padding: 4px;
+    width: 30px;
+    height: 30px;
   }
 }
 

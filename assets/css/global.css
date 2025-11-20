@@ -373,10 +373,6 @@ display: flex !important;
   height: 28px;
 }
 
-  .nav-item{
-    padding-left: 10px;
-  }
-
 /* Mobile: always stick icons to top-right of navbar */
 @media (max-width: 768px) {
   .navbar-icons {
@@ -392,10 +388,6 @@ display: flex !important;
   .navbar-icons img {
     width: 30px;
     height: 30px;
-  }
-
-  .nav-item{
-    padding-left: 0px;
   }
 }
 

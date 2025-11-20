@@ -385,16 +385,11 @@ display: flex !important;
 
 /* Mobile overrides */
 @media (max-width: 768px) {
-  /* Stop the collapse from grabbing the whole row */
-  .navbar-collapse {
-    flex-basis: auto !important;
-    flex-grow: 0 !important;
-  }
-
-  /* Let nav items wrap below as a block */
-  .navbar-nav {
-    flex-direction: column;
-  }
+  .navbar-icons {
+margin-top: -63%;
+  
+}
+  
 }
 
 

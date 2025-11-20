@@ -385,7 +385,7 @@ display: flex !important;
 
 /* Mobile overrides */
 @media (max-width: 768px) {
-  .navbar-icons {
+  .navbar-collapse.show .navbar-icons {
 margin-top: -63%;
 }
 

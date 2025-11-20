@@ -259,13 +259,13 @@ h1, h2, h3 {
   font-family: inherit;
   margin: 0; }
 
-.navbar {
+/* .navbar {
   display: flex;
   justify-content: space-between;
   
   background-color: var(--nav-background) !important;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
-}
+} */
 
 .navbar-brand, .navbar-nav .active > .nav-link {
   color: var(--nav-color) !important; }
@@ -277,16 +277,16 @@ h1, h2, h3 {
 .dropdown:hover .dropbtn {
   display: block; }
 
-.navbar-icons {
+/* .navbar-icons {
 display: flex !important;
-}
+} */
 
 /* icon styles */
-.navbar-icons img {
+/* .navbar-icons img {
   width: 35px;
   height: 35px;
   margin-left:15px;
-}
+} */
 
 /* hover effect */
 .navbar-icons img:hover {
@@ -361,10 +361,41 @@ display: flex !important;
   --nav-color-opaque: rgba(0, 0, 0, 0.9); } */
 
 
+/* Navbar layout (desktop + mobile base) */
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: var(--nav-background) !important;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
+
+/* Make sure icons just sit to the right */
+.navbar-icons {
+  display: flex !important;
+  margin-left: auto;       /* push icons to far right */
+  gap: 0.5rem;
+}
+
+/* icon size */
+.navbar-icons img {
+  width: 28px;
+  height: 28px;
+}
+
+/* Mobile overrides */
 @media (max-width: 768px) {
- .navbar-collapse.show ~ .navbar-icons {
-    position: absolute;          /* a bit lower from the top edge */
-    right: 1rem;
-    top: 7%;
+  /* Stop the collapse from grabbing the whole row */
+  .navbar-collapse {
+    flex-basis: auto !important;
+    flex-grow: 0 !important;
+  }
+
+  /* Let nav items wrap below as a block */
+  .navbar-nav {
+    flex-direction: column;
   }
 }
+
+
+

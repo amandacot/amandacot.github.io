@@ -377,7 +377,7 @@ display: flex !important;
 @media (max-width: 768px) {
   .navbar-icons {
     position: absolute;
-    top: 0.6rem;     /* tweak this to align vertically with the hamburger */
+    top: 0.7rem;     /* tweak this to align vertically with the hamburger */
     right: 1rem;     /* space from the right edge */
     display: flex;
     align-items: center;
@@ -388,6 +388,10 @@ display: flex !important;
   .navbar-icons img {
     width: 30px;
     height: 30px;
+  }
+
+  .nav-item{
+    padding-left:10px;
   }
 }
 

@@ -364,36 +364,42 @@ display: flex !important;
 /* Navbar layout (desktop + mobile base) */
 .navbar {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  justify-content: space-between;
   background-color: var(--nav-background) !important;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+  position: relative;   /* 👈 add this */
 }
 
-/* Make sure icons just sit to the right */
+/* Base icon styles (desktop + mobile) */
 .navbar-icons {
   display: flex !important;
-  margin-left: auto;       /* push icons to far right */
   gap: 0.5rem;
 }
 
-/* icon size */
 .navbar-icons img {
   width: 28px;
   height: 28px;
 }
 
-/* Mobile overrides */
+/* Mobile: always stick icons to top-right of navbar */
 @media (max-width: 768px) {
-  .navbar-collapse.show ~ .navbar-icons {
-margin-top: -63%;
+  .navbar-icons {
+    position: absolute;
+    top: 0.6rem;     /* tweak this to align vertically with the hamburger */
+    right: 1rem;     /* space from the right edge */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 1031;   /* stay above the collapse content if needed */
+  }
+
+  .navbar-icons img {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+  }
 }
 
-  .project-right-col{
-  padding-top: 55px;
-}
-  
-}
 
 
 

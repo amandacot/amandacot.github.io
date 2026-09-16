@@ -25,6 +25,17 @@
   /* --nav-color-opaque: #FBFFF1;  */
   --nav-color-opaque: #2C2C2C;
 }
+/* Hide the line break on small screens */
+.responsive-br {
+  display: none;
+}
+
+/* Show the line break when the window width exceeds 768px */
+@media (min-width: 1532px) {
+  .responsive-br {
+    display: inline;
+  }
+}
 
 html, body {
   min-height: 100vh;

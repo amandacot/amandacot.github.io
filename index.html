@@ -30,16 +30,45 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/umg.css">
 
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Staatliches&display=swap" rel="stylesheet">
   <title>Home | Amanda Cotumaccio</title>
 </head>
 
 <style>
-  h1,
+  .homepage-frame {
+  width: 550px;
+  max-height: 600px;
+
+  
+  margin: 0 auto;
+}
+.homepage-frame img {
+  width: 100%;
+  display: block;
+  max-height: none;
+}
+  
+  
+  /* h2{
+  font-weight: 400;
+  font-size: 40px;
+  }
+  p{
+    font-family: 'DM Sans', sans-serif;
+    color: #605F5F;
+  } */
+  /* h1,
   h2,
   h3 {
     text-align: center;
-  }
+    font-family: 'Urbanist', sans-serif;
+  } */
   .experience_header{
     text-align: left !important;
     font-size: 25px;
@@ -83,11 +112,20 @@
   font-size: .8rem;
   padding: .25rem .5rem;
   border-radius: 999px;
-  background: #EAE4FA;
-  color: var(--foreground-accent);
+  background: #8565AE;
+  color: white;
 }
 
-  
+.homepage-tags { display:flex; flex-wrap:wrap; gap: 15px; }
+.homepage-tags span{
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #D6CAE7;
+  color:  #664A8C;
+  font-size:.95rem; transition:all .2s ease;
+}
+
 </style>
 
 
@@ -97,84 +135,164 @@
     const theme = localStorage.getItem('theme') || 'dark';
     document.body.toggleClass('light');
   </script>
-  <header>
+  <header class="sticky-top">
 
   
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <!-- <a class="navbar-brand" href="#">Amanda Cotumaccio</a> -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+      <!-- Name on left (links to homepage) -->
+      <a class="navbar-brand" href="index.html">
+        <span class="brand-circle" aria-hidden="true"></span>
+        Amanda Cotumaccio
+      </a>
+    
+      <!-- Hamburger menu for mobile -->
+      <button class="navbar-toggler" type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+    
+      <!-- Center navigation links -->
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.html">Amanda Cotumaccio <span class="sr-only">(current)</span></a>
-          </li>
-
+    
           <li class="nav-item">
-            <div class="btn-group">
-              <a class="nav-link btn dropbtn" id="navbarDropdown" href="projects.html">Projects</a>
+            <a class="nav-link" href="projects.html">
+              <span>Projects</span>
+          </a>
           </li>
-
-            <li class="nav-item">
-            <a class="nav-link" href="Amanda Cotumaccio Resume Fall 2026.pdf" target="_blank" rel="noopener">Resume <span class="sr-only">(current)</span></a>
+    
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">
+              
+              <span>About</span>
+          
+          </a>
           </li>
-
+    
+          <li class="nav-item">
+            <a class="nav-link"
+   href="Amanda Cotumaccio Resume Fall 2026.pdf"
+   target="_blank"
+   rel="noopener">
+  <span>Resume ↗</span>
+ 
+</a>
+          </li>
+    
         </ul>
-      </div>
-      </div>
-      <!-- <div class="toggle-night">
-        <div class="moon">
 
-        </div>
-      </div> -->
-
+        <!-- Icons on right -->
       <div class="navbar-icons">
-  <a href="mailto:amandalcot@gmail.com" target="_blank" aria-label="Email">
-    <img src="images/emailicon.png" alt="Email" />
-  </a>
-  <a href="https://www.linkedin.com/in/amanda-cotumaccio-709603236/" target="_blank" rel="noopener" aria-label="LinkedIn">
-    <img src="images/linkedinicon.png" alt="LinkedIn" />
-  </a>
-</div>
+        <a href="https://www.linkedin.com/in/amanda-cotumaccio-709603236/"
+           target="_blank"
+           rel="noopener"
+           aria-label="LinkedIn">
+          <img src="images/linkedin.png" alt="">
+          <span class="linkedin-text">
+            LinkedIn ↗
+          </span>
+        </a>
+    
+      </div>
+      </div>
+    
       
+    
     </nav>
+    
   </header>
-  <div class="container-fluid">
+  
 
 
 
-    <section id="about" class="about-container hero-about">
-  <!-- Left: text -->
-  <div class="about-copy">
-    <h2 style="text-align:left;">About Me</h2>
-    <p class="descriptions">
-Hi! I’m Amanda Cotumaccio, and I’m currently pursuing a Master’s in Human-Computer Interaction at Carnegie Mellon University. 
-With a background in computer science, design, and front-end development, I’ve always been passionate about creating meaningful digital 
-experiences that bridge design and technology. My work spans UX and product design, <span style="white-space: nowrap;">e-commerce</span>, and development.  
-This site is a collection of projects that show how I bring all of those interests together.
-    </p>
+<!-- <section style ="margin:15%" >
+<p class = "descriptions">Amanda Cotumaccio</p>
+<h1 style="text-align:left;">From code to clicks, I design experiences that connect.</h1>
+</section> -->
 
-    <div class="cta-row">
-      <a href="projects.html" class="btn-pill">View Projects</a>
-      <a href="Amanda Cotumaccio Resume Fall 2025.pdf" class="btn-pill" target="_blank" rel="noopener">View Resume</a>
-    </div>
-  </div>
+<!-- Full-width hero -->
+<section class="homepage-hero">
+  <canvas class="hero-grid-canvas" aria-hidden="true"></canvas>
 
-  <!-- Right: photo -->
-  <div class="about-photo-wrap">
-    <img src="images/25_08_13 Amanda Cotumaccio_2.jpg" alt="Portrait of Amanda Cotumaccio" class="profile-photo-lg" />
+  <div class="hero-content">
+    <p class="descriptions">Amanda Cotumaccio</p>
+    <h1>Code-driven, design-focused. Creating experiences that connect.</h1>
   </div>
 </section>
 
+<!-- Rest of homepage -->
+<div class="container-fluid">
+
+
+<a class="clickable-card" href="imma.html">
+<section id="projects" class="about-container hero-about">
+    <!-- Right: photo -->
+           <div class="homepage-frame">
+            <img src="images/IMMA.png" alt="IMMA Shop" />    
+        </div>
+    
+    <!-- Left: text -->
+  <div class="">
+    <div class="homepage-tags">
+      <span>2025</span><span>UX/UI Design</span>
+    </div>
+    <h2 style="text-align:left;">Redesigning the IMMA Online Shop</h2>
+    <p class="descriptions">
+      Redesigned the Irish Museum of Modern Art's online store to improve navigation, product discovery, and the overall shopping experience.
+    </p>
+
+    <!-- <div class="cta-row">
+      <a href="projects.html" class="btn-pill">View Projects</a>
+      <a href="Amanda Cotumaccio Resume Fall 2025.pdf" class="btn-pill" target="_blank" rel="noopener">View Resume</a>
+    </div> -->
+  </div>
+
+</section>
+</a>
+
+
+<a class="clickable-card" href="umg.html">
+<section id="projects" class="about-container hero-about">
+  <!-- Right: photo -->
+         <div class="homepage-frame">
+          <img src="images/Homepage - Tye Tribbett.png" alt="IMMA Shop" />    
+      </div>
+  
+  <!-- Left: text -->
+<div class="">
+  <div class="homepage-tags">
+    <span>2024</span><span>Front-End Development</span>
+  </div>
+  <h2 style="text-align:left;">Building Digital Storefronts for Music Artists</h2>
+  <p class="descriptions">
+    Developed and customized Shopify storefronts for Universal Music Group artists, bringing artist branding into the online shopping experience.
+  </p>
+
+  <!-- <div class="cta-row">
+    <a href="projects.html" class="btn-pill">View Projects</a>
+    <a href="Amanda Cotumaccio Resume Fall 2025.pdf" class="btn-pill" target="_blank" rel="noopener">View Resume</a>
+  </div> -->
+</div>
+
+</section>
+</a>
 
 
 
-    <section id="experience" class="xp">
+
+
+
+
+    <!-- <section id="experience" class="xp">
   <h2>Professional Experience</h2>
 
   <div class="xp-timeline">
-    <!-- IMMA -->
+    IMMA
     <div class="xp-item">
       <div class="xp-dot"></div>
       <div class="xp-line"></div>
@@ -192,7 +310,7 @@ This site is a collection of projects that show how I bring all of those interes
       </div>
     </div>
 
-    <!-- UMG -->
+  UMG
     <div class="xp-item">
       <div class="xp-dot"></div>
       <div class="xp-line"></div>
@@ -211,7 +329,7 @@ This site is a collection of projects that show how I bring all of those interes
       </div>
     </div>
 
-    <!-- Orbital Engineering -->
+  Orbital Engineering 
     <div class="xp-item">
       <div class="xp-dot"></div>
       <div class="xp-line"></div>
@@ -229,7 +347,34 @@ This site is a collection of projects that show how I bring all of those interes
       </div>
     </div>
   </div>
-</section>
+</section> -->
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <!-- Contact section -->
+    <div class="footer-top">
+      <div class="footer-contact">
+        <h2>Let's connect.</h2>
+        <p>Interested in collaborating or just saying hello?</p>
+        <a href="mailto:amandalcot@gmail.com" class="footer-email">
+          Get in touch ↗
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Bottom section -->
+    <div class="footer-bottom">
+      <p>© 2026 Amanda Cotumaccio</p>
+      <p>Designed &amp; built by me</p>
+    </div>
+
+  </div>
+</footer>
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>

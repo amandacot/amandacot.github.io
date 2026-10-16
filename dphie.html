@@ -10,152 +10,607 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/global.css">
   <link rel="stylesheet" href="assets/css/umg.css">
-  <title>DPhiE Pitt Chapter Website | Amanda Cotumaccio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Staatliches&display=swap" rel="stylesheet">
+
+  <title>IMMA – Shopify Components & UX Work | Amanda Cotumaccio</title>
 </head>
 
+
+  
 <body>
   <style>
-    .h2 {
-      text-align: left !important;
-    }
+    .h2{
+    text-align: left !important;}
+
+
+
+.section-description {
+  font-family: 'DM Sans', sans-serif;
+}
+.redesign-section {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.comparison-item {
+  min-width: 0;
+}
+
+.comparison-item h3 {
+  text-align: center;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+
+.comparison-image {
+  background: #F7F7F7;
+  border: 1px solid #E0E0E0;
+  border-radius: 12px;
+  padding: 12px;
+
+  height: 650px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.comparison-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top;
+  border-radius: 8px;
+}
+
+
+.redesign-item {
+  background: transparent;
+  padding: 0;
+  min-width: 0;
+}
+
+.redesign-item h3 {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  text-align: left;
+  margin-bottom: 15px;
+  margin-left: 5px;
+  color: #2A2930;
+}
+
+.redesign-image {
+  background: #ECEBE9;
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
+  border:1px solid #e2e2e2;
+}
+.redesign-image:hover{
+  transform: translateY(-4px) !important;
+  transition: transform 0.25s ease !important;
+}
+
+.redesign-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .redesign-image {
+    height: 450px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .comparison-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .comparison-image {
+    height: 450px;
+  }
+}
+/* Overall case study */
+.case-study {
+  background: #F4F2ED;
+  color: #2A2930;
+}
+
+/* Hero */
+.case-hero {
+  background: linear-gradient(
+    180deg,
+    #F0EBF5 0%,
+    #F4F2ED 100%
+  );
+  padding: 55px 0 80px;
+}
+
+.back-link {
+  display: inline-block;
+  color: #2A2930;
+  text-decoration: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  margin-bottom: 55px;
+}
+
+.back-link:hover {
+  color: #664A8C;
+}
+
+.case-hero h1 {
+  font-family: 'Urbanist', sans-serif;
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 500;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  text-align:left;
+}
+
+.case-subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 19px;
+  line-height: 1.6;
+  color: #605F5F;
+  margin-bottom: 50px;
+}
+
+.case-hero-image {
+  display: block;
+  width: 100%;
+  max-height: 550px;
+  object-fit: contain;
+  border-radius: 12px;
+  margin-bottom: 40px;
+}
+
+/* Project details */
+.case-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.case-details span {
+  font-family: 'Urbanist', sans-serif;
+  color: #664A8C;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+}
+
+.case-details p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  margin-top: 8px;
+  color: #2A2930;
+}
+
+/* Text sections */
+.case-section {
+  padding-bottom:65px;
+}
+
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 80px;
+}
+
+.case-label {
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #664A8C;
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.case-section p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 17px;
+  line-height: 1.75;
+  color: #605F5F;
+}
+
+/* Before and after */
+.redesign-section {
+  background: #F4F2EC;
+}
+
+.case-heading {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 38px;
+  font-weight: 400;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+}
+
+.case-container {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 0px 30px;
+}
+
+.comparison-item{
+  border-radius: 12px;
+  padding: 20px;
+  min-height: 220px;
+}
+
+
+.redesign-container {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 30px 30px;
+background-color:white;
+border-radius:24px;
+border:1px solid #e2e2e2;
+}
+
+
+.comparison-item h3 {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 22px;
+  margin-bottom: 20px;
+  text-align:left;
+}
+
+.comparison-item img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 8px;
+  display: block;
+}
+
+.screenshot-frame {
+  background: #f7f7f7;
+  border-radius: 12px;
+  border: 1px solid #e2e2e2;
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+  /* adjust as needed */
+}
+
+.screenshot-frame img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 8px;
+  display: block;
+}
+
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .case-container {
+    padding: 0 20px;
+  }
+
+  .case-hero {
+    padding: 35px 0 55px;
+  }
+
+  .back-link {
+    margin-bottom: 35px;
+  }
+
+  .case-grid,
+  .comparison-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .case-details {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+.case-section.redesign-section {
+  padding: 45px 5% !important;
+}
+
+    
   </style>
+<header class="sticky-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-  <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <!-- <a class="navbar-brand" href="#">Amanda Cotumaccio</a> -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.html">Amanda Cotumaccio <span class="sr-only">(current)</span></a>
-          </li>
+    <!-- Name on left (links to homepage) -->
+    <a class="navbar-brand" href="index.html">
+      <span class="brand-circle" aria-hidden="true"></span>
+      Amanda Cotumaccio
+    </a>
+  
+    <!-- Hamburger menu for mobile -->
+    <button class="navbar-toggler" type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <!-- Center navigation links -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+  
+        <li class="nav-item">
+          <a class="nav-link" href="projects.html">
+            <span>Projects</span>
+        </a>
+        </li>
+  
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">
+            
+            <span>About</span>
+        
+        </a>
+        </li>
+  
+        <li class="nav-item">
+          <a class="nav-link"
+ href="Amanda Cotumaccio Resume Fall 2026.pdf"
+ target="_blank"
+ rel="noopener">
+<span>Resume ↗</span>
 
-          <li class="nav-item">
-            <div class="btn-group">
-              <a class="nav-link btn dropbtn" id="navbarDropdown" href="projects.html">Projects</a>
-          </li>
+</a>
+        </li>
+  
+      </ul>
 
-            <li class="nav-item">
-            <a class="nav-link" href="Amanda Cotumaccio Resume Fall 2026.pdf" target="_blank" rel="noopener">Resume <span class="sr-only">(current)</span></a>
-          </li>
-
-        </ul>
-      </div>
-      </div>
-      <!-- <div class="toggle-night">
-        <div class="moon">
-
-        </div>
-      </div> -->
-
-      <div class="navbar-icons">
-  <a href="mailto:amandalcot@gmail.com" target="_blank" aria-label="Email">
-    <img src="images/emailicon.png" alt="Email" />
-  </a>
-  <a href="https://www.linkedin.com/in/amanda-cotumaccio-709603236/" target="_blank" rel="noopener" aria-label="LinkedIn">
-    <img src="images/linkedinicon.png" alt="LinkedIn" />
-  </a>
-</div>
-      
-    </nav>
-  </header>
-
-
-      <!-- OVERVIEW / RESPONSIBILITIES -->
-<main class="project-page umg-project py-5">
-    <div class="container">
-     <a href="projects.html" class="back-link">&larr; Back to Projects</a>
-      <!-- HERO / INTRO -->
-      <section class="project-hero mb-5" style="margin-top:3%;">
-        <h1 class="mt-3" style="text-align:left;">Delta Phi Epsilon – Pitt Chapter Website</h1>
-        <p class="project-subtitle">
-           Chapter Website Designer &amp; Manager – University of Pittsburgh
-        </p>
-
-        <p class="lead">
-          I design and manage Delta Phi Epsilon’s chapter website as a central communication hub for 
-          prospective new members, parents, and campus partners. The site needs to clearly represent our 
-          values and member experience while staying easy to navigate and adaptable to changing leadership, events, and recruitment cycles.
-        </p>
-      </section>
-
-      <!-- OVERVIEW / RESPONSIBILITIES --> 
-      <section>
-        <h3 style="text-align:left;">Constraints</h3>
-        <ul class="lead">
-          <li>Frequent leadership turnover requiring easy content updates</li>
-          <li>Need to serve multiple audiences with different goals</li>
-        </ul>
-      </section>
-
-      <section>
-         <h3 style="text-align:left;">My Approach</h3>
-        <ul class="lead">
-          <li>Structured the site’s information architecture to serve different audiences, including potential new members and parents</li>
-          <li>Designed page layouts and navigation to make key information easy to find</li>
-          <li>Maintained content, visuals, and layout each semester to reflect leadership and event changes</li>
-        </ul>
-        </section>
-
-      <section style="margin-bottom:5%">
-        <h3 style="text-align:left;">Impact</h3>
-        <ul class="lead">
-          <li>Created a consistent and accessible online presence for the chapter</li>
-          <li>Made recruitment and information easier for prospective members to understand</li>
-          <li>Ensured the site remained current and usable across leadership transitions</li>
-        </ul>
-      </section>
-
-      <!-- WEBSITE EXAMPLE -->
-      <section class="storefront card card-home mb-5">
-        <div class="card-body">
-          <h2 class="card-title" style="text-align:left;">Chapter Website Design &amp; Layout</h2>
-
-        <p class="storefront-meta">
-             <strong>Status:</strong> Live - this version reflects the work I've completed.<br />
-          </p>
-
-          <div class="mb-3">
-            <a
-              href="https://www.dphiepitt.org/"
-              class="btn-pill"
-              target="_blank"
-              rel="noopener"
-            >
-              View Live Website
-            </a>
-          </div>
-
-          <!-- Screenshots grid -->
-          <div class="row g-4 mt-4">
-            <div class="col-md-6">
-              <h3 class="h5">Earlier Design</h3>
-              <div class="screenshot-frame">
-                <!-- replace with your real screenshot -->
-                <img
-                  src="images/dphie-site-before.png"
-                  alt="Earlier version of the DPhiE Pitt chapter website homepage"
-                />
-              </div>
-            </div>
-            <div class="col-md-6 project-right-col">
-              <h3 class="h5">Updated Design</h3>
-              <div class="screenshot-frame">
-                <!-- replace with your real screenshot -->
-                <img
-                  src="images/dphie-site-after.png"
-                  alt="Updated DPhiE Pitt chapter website homepage with refined layout and content"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <!-- Icons on right -->
+    <div class="navbar-icons">
+      <a href="https://www.linkedin.com/in/amanda-cotumaccio-709603236/"
+         target="_blank"
+         rel="noopener"
+         aria-label="LinkedIn">
+        <img src="images/linkedin.png" alt="">
+        <span class="linkedin-text">
+          LinkedIn ↗
+        </span>
+      </a>
+  
     </div>
+    </div>
+  
+    
+  
+  </nav>
+</header>
+
+      
+
+
+      <main class="case-study">
+
+        <!-- Hero -->
+        <section class="case-hero">
+          <div class="case-container">
+      
+            <a href="projects.html" class="all-projects-link">
+              <span>All Projects ↗</span>
+            </a>
+      
+            <h1>Delta Phi Epsilon - Pitt Chapter Website</h1>
+      
+            <p class="case-subtitle">
+              Improving navigation, content organization, and the online experience for prospective members, parents, and campus partners.
+            </p>
+      
+            <img
+              src="images/IMMA.png"
+              alt="Updated IMMA online storefront"
+              class="case-hero-image"
+            >
+      
+            <div class="case-details">
+              <div>
+                <span>ROLE</span>
+                <p>Website Designer & Manager</p>
+              </div>
+      
+              <div>
+                <span>TIMELINE</span>
+                <p>2025</p>
+              </div>
+      
+              <div>
+                <span>TOOLS</span>
+                <p>Wix, Figma, CSS</p>
+              </div>
+            </div>
+      
+          </div>
+        </section>
+      
+      
+        <!-- Background and Challenge -->
+        <section class="case-section">
+          <div class="case-container case-grid">
+      
+            <div>
+              <h2 class="case-label">BACKGROUND</h2>
+              <p>
+                Delta Phi Epsilon's University of Pittsburgh chapter website serves 
+                as a central resource for prospective new members, parents, and campus partners. 
+                As the chapter's website designer and manager, I was responsible for 
+                creating and maintaining an online presence that reflected the chapter's 
+                values, activities, and member experience.
+              </p>
+            </div>
+      
+            <div>
+              <h2 class="case-label">CHALLENGE</h2>
+              <p>
+                The website needed to communicate information clearly to multiple 
+                audiences while remaining easy to navigate and maintain. 
+                Frequent leadership transitions, recruitment cycles, and changing events 
+                also required a flexible structure that could accommodate 
+                regular content updates without compromising consistency.
+              </p>
+            </div>
+      
+          </div>
+        </section>
+      
+      
+        <!-- Solution and Contribution -->
+        <section class="case-section">
+          <div class="case-container case-grid">
+      
+            <div>
+              <h2 class="case-label">SOLUTION</h2>
+              <p>
+                I organized the website's content and navigation around the needs of its different audiences, 
+                making important information easier to locate. I also designed consistent 
+                page layouts that could support recruitment, chapter updates, and ongoing content changes.
+              </p>
+            </div>
+      
+            <div>
+              <h2 class="case-label">MY CONTRIBUTION</h2>
+              <p>
+                I redesigned page layouts and navigation, organized website content for different audiences, 
+                and maintained the site's visuals and information to reflect ongoing recruitment, events, 
+                and leadership changes.
+              </p>
+            </div>
+      
+          </div>
+        </section>
+      
+      
+        <!-- Before and After -->
+        <section class="case-section redesign-section">
+          <div class="redesign-container">
+      
+            <h2 class="case-heading">The Redesign</h2>
+      
+            <p class="case-intro">
+            A comparison of the chapter website's earlier design and the updated experience, 
+            highlighting changes to its layout, navigation, and visual presentation.
+            </p>
+
+            <div class="mb-3">
+              <a href="https://www.dphiepitt.org/" class="btn-pill" target="_blank" rel="noopener">
+                View Live Storefront
+              </a>
+            </div>
+      
+            <div class="comparison-grid">
+      
+              <div class="redesign-item">
+                <h3>Earlier Design</h3>
+                <div class="redesign-image">
+
+                  <a href="images/dphie-site-before.png"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="View full-size earlier IMMA storefront screenshot">
+                 <img
+                   src="images/dphie-site-before.png"
+                   alt="Earlier IMMA storefront design">
+               </a>
+               
+              </div>
+              </div>
+      
+              <div class="redesign-item">
+                <h3>Updated Design</h3>
+                <div class="redesign-image">
+                  
+                  <a href="images/dphie-site-after.png"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="View full-size earlier IMMA storefront screenshot">
+                 <img
+                   src="images/dphie-site-after.png"
+                   alt="Earlier IMMA storefront design">
+               </a>
+                </div>
+              </div>
+      
+            </div>
+      
+          </div>
+        </section>
+      
+      
+        <!-- Outcome -->
+        <section class="case-section">
+          <div class="case-container">
+            <h2 class="case-label">OUTCOME</h2>
+      
+            <p class="outcome-text">
+              The updated website established a more consistent online presence for the chapter, 
+              with clearer organization and layouts designed to support prospective members and other 
+              visitors. Its adaptable structure also helped accommodate ongoing recruitment, event, 
+              and leadership updates.
+            </p>
+          </div>
+        </section>
+      
+      </main>
+      
+     
   </main>
+
+
+  <footer class="site-footer">
+    <div class="footer-container">
+  
+      <!-- Contact section -->
+      <div class="footer-top">
+        <div class="footer-contact">
+          <h2>Let's connect.</h2>
+          <p>Interested in collaborating or just saying hello?</p>
+          <a href="mailto:amandalcot@gmail.com" class="footer-email">
+            Get in touch ↗
+          </a>
+        </div>
+  
+</div>
+  
+      <!-- Bottom section -->
+      <div class="footer-bottom">
+        <p>© 2026 Amanda Cotumaccio</p>
+        <p>Designed &amp; built by me</p>
+      </div>
+  
+    </div>
+  </footer>
 
   <!-- Bootstrap JS (if needed) -->
      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

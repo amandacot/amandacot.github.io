@@ -7,9 +7,7 @@
   align-self: center;
   margin-top: 0;               /* was 20%, which pushed images too far down */
 }
-.col {
-  display: flex;
-}
+
 
 /* Main project card */
 .card-home {
@@ -29,18 +27,28 @@ position: relative;
   box-shadow: 0 10px 26px rgba(0,0,0,.08);  /* same style as other cards */
 }
 
+
+@media (max-width: 768px) {
+  .card-home {
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto 30px;
+  }
+}
+
 /* New pill buttons that match the rest of your site */
 .card-home .btn {
   display: inline-block;
   padding: 0.45rem 1rem;
   border-radius: 999px;
-  background: #EAE4FA;
-  color: var(--foreground-accent);
+  background: #D6CAE7;
+  color: #664A8C;
   border: none;
-  font-weight: 600;
+  font-weight:600; font-size:.95rem; transition:all .2s ease;
   text-decoration: none;
   transition: all 0.2s ease;
   margin: 5px auto 10px;       /* centers nicely inside the card */
+  
 }
 .card-home:hover {
   transform: translateY(-4px);
@@ -49,9 +57,10 @@ position: relative;
 
 .card-home .btn:hover,
 .card-home .btn:focus-visible {
-  background: #CBBBE0;
+  background: #664A8C;
+  color:#D6CAE7;
   transform: translateY(-1px);
-  box-shadow: 0 3px 8px rgba(143,116,181,0.2);
+  box-shadow: 0 4px 2px rgba(143,116,181,0.2);
 }
 
 .card-logo-wrapper {
@@ -71,7 +80,9 @@ position: relative;
 }
 
 .page-title{
-  padding: 30px;
+  padding: 20px;
+  font-family:"Urbanist", sans-serif;
+  font-size:32px;
 }
 
 .card-body {
@@ -87,4 +98,8 @@ position: relative;
   margin: 1.5rem 0 1rem;         /* space above/below logo */
 }
 
+.card-title{
+  font-family: 'urbanist', sans-serif !important;
+ font-size:25px;
+}
 

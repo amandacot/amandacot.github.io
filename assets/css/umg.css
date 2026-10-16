@@ -18,10 +18,7 @@
   text-decoration: underline;
 }
 
-.storefront-meta {
-  margin-bottom: 1rem;
-  color: #555;
-}
+
 
 .screenshot-frame {
   background: #f7f7f7;
@@ -62,6 +59,19 @@
 .screenshot-frame img.desktop-screenshot {
   /* max-width: 700px;
   height: auto;
-  max-height: 560px; /* adjust if you want */ */
+  max-height: 560px; /* adjust if you want */ 
 }
 
+@media (max-width: 768px) {
+  .case-section {
+    padding: 45px 0 !important;
+  }
+
+  .case-section .case-container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+    box-sizing: border-box;
+  }
+}

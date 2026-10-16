@@ -292,6 +292,8 @@ header {
   font-size: 18px;
 }
 
+
+
 .nav-item {
   padding-right: 20px;
 }
@@ -310,9 +312,12 @@ header {
 /* Active page underline */
 /* Navigation links */
 .navbar-nav .nav-link {
+  display: inline-block;
   position: relative;
+  color: #664A8C;
   text-decoration: none;
 }
+
 
 /* Text wrapper */
 .navbar-nav .nav-link span {

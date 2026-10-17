@@ -33,7 +33,9 @@
 .linkedin-text {
   display: none;
 }
-
+strong{
+  font-weight:600;
+}
 /* Mobile */
 @media (max-width: 991.98px) {
   .navbar-icons .linkedin-icon {

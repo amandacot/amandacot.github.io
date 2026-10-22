@@ -22,29 +22,35 @@
     text-align: left !important;
     }
 
-main{
-    padding-left:7%;
-    padding-right:7%;
+  main {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.descriptions{
+  font-size:22px;
+  padding-bottom:20px;
 }
 
 /* EXPERIENCE & EDUCATION SECTION */
 .about-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 8%;
+  column-gap: 2%;
   align-items: center;
-  padding: 3rem 0 4rem;
+  padding: 5% 0 10%;
 }
 
 
 .about-details-container {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 40px;
+  gap: 36px;
   width: 100%;
-  margin-bottom: 60px;
+  margin: 0 auto 80px;
 }
-
 
 
 .about-copy {
@@ -57,31 +63,38 @@ main{
   min-width: 0;
 }
 
-.about-details-box {
-  width: 100%;
-  min-width: 0;
-  box-sizing: border-box;
-  background: #ECEBE9;
-  border-radius: 20px;
-  padding: 32px;
-}
-/* Experience / Education headings */
-.about-details-box h2 {
-  font-family: 'Urbanist', sans-serif;
-  font-size: 32px;
-  font-weight: 500;
-  color: #2A2930;
+
+.about-details-box .text-container {
   text-align: left;
-  margin: 0 0 35px;
 }
 
+.about-details-box {
+  background: #ECEBE9;
+  border-radius: 16px;
+  padding: 24px;
+  min-width: 0;
+  height:auto;
+  box-sizing: border-box;
+}
+
+.about-details-box h2 {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: #2A2930;
+  margin: 0 0 18px;
+  text-align: left;
+}
+
+
 /* Each company or school entry */
+
 .experience-entry {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 20px;
-  margin-bottom: 30px;
+  gap: 20%;
+  
 }
 
 .experience-entry:last-child {
@@ -97,12 +110,12 @@ main{
 /* Company or university name */
 .experience-entry h3 {
   font-family: 'Figtree', sans-serif;
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 500;
   color: #2A2930;
-  line-height: 1.4;
-  margin: 0 0 5px;
   text-align:left;
+  line-height: 1.3;
+  margin: 0 0 0;
 }
 
 /* Job title or degree */
@@ -111,14 +124,13 @@ main{
   font-size: 16px;
   font-weight: 400;
   color: #605F5F;
-  line-height: 1.5;
-  margin: 0;
+  line-height: 1.3;
 }
 
 /* Right side: year */
 .experience-year {
   font-family: 'Figtree', sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
   color: #664A8C;
   white-space: nowrap;
@@ -144,6 +156,12 @@ main{
 
 /* Mobile */
 @media (max-width: 768px) {
+  .about-photo-wrap {
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+}
+
   .about-details {
     padding: 40px 0 60px;
   }
@@ -168,7 +186,7 @@ main{
   }
 
   .experience-entry {
-    gap: 12px;
+    gap: 20%;
     margin-bottom: 25px;
   }
 
@@ -273,7 +291,7 @@ main{
     <section id="about" class="about-layout">
         <!-- Left: text -->
         <div class="about-copy">
-          <h2 style="text-align:left;">About Me</h2>
+          <h2 style="text-align:left; font-size:34px; margin-top:0px; padding-bottom:20px;">About Me</h2>
           <p class="descriptions">
             Hi! I’m Amanda Cotumaccio, and I’m currently pursuing a Master’s in Human-Computer 
             Interaction at Carnegie Mellon University. With a background in computer science and 
@@ -329,6 +347,7 @@ main{
           </div>
       
           <!-- Education box -->
+         
           <div class="about-details-box">
             <h2>Education</h2>
       
@@ -347,9 +366,8 @@ main{
               </div>
               <span class="experience-year">2022–2026</span>
             </div>
-          
-      
-        </div>
+       
+      </div>
       </section>
   
 

@@ -573,7 +573,10 @@ html {
   box-shadow: 0 12px 28px rgba(0,0,0,.18);
   display: block;
 }
-.about-photo-wrap { display: flex; justify-content: center; }
+.about-photo-wrap { 
+  display: flex; 
+  justify-content: flex-start; 
+}
 
   .about-photo-wrap {
     justify-content: center;
@@ -589,7 +592,7 @@ html {
   display: grid;
   grid-template-columns: 1.15fr 1fr;       /* text | photo */
   align-items: center;
-  gap: clamp(1rem, 3vw, 3rem);
+  gap: 25%;
   padding: 5% 5% 3rem;
 }
 

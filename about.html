@@ -28,27 +28,42 @@ main{
 }
 
 /* EXPERIENCE & EDUCATION SECTION */
-
-.about-details {
-  background: #F4F2ED;
-  padding: 60px 0 80px;
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 8%;
+  align-items: center;
+  padding: 3rem 0 4rem;
 }
 
+
 .about-details-container {
-  width: 90%;
-  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 40px;
-  align-items: stretch;
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+
+
+.about-copy {
+  min-width: 0;
+}
+
+.about-photo-wrap {
+  display: flex;
+  justify-content: flex-end;
+  min-width: 0;
 }
 
 .about-details-box {
   width: 100%;
   min-width: 0;
+  box-sizing: border-box;
   background: #ECEBE9;
   border-radius: 20px;
-  padding: 40px;
+  padding: 32px;
 }
 /* Experience / Education headings */
 .about-details-box h2 {
@@ -117,6 +132,11 @@ main{
     gap: 24px;
   }
 
+  .about-layout {
+    column-gap: 5%;
+    row-gap: 3rem;
+  }
+
   .about-details-box {
     padding: 30px;
   }
@@ -131,6 +151,11 @@ main{
   .about-details-container {
     grid-template-columns: 1fr;
     gap: 24px;
+  }
+
+  .about-layout {
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
   }
 
   .about-details-box {
@@ -245,7 +270,7 @@ main{
 
 
 
-    <section id="about" class="about-container hero-about">
+    <section id="about" class="about-layout">
         <!-- Left: text -->
         <div class="about-copy">
           <h2 style="text-align:left;">About Me</h2>
@@ -259,23 +284,23 @@ main{
       
           <div class="cta-row">
             <a href="projects.html" class="btn-pill">View Projects</a>
-            <a href="Amanda Cotumaccio Resume Fall 2025.pdf" class="btn-pill" target="_blank" rel="noopener">View Resume</a>
+            <a href="Amanda Cotumaccio Resume Fall 2026.pdf" class="btn-pill" target="_blank" rel="noopener">View Resume</a>
           </div>
         </div>
       
         <!-- Right: photo -->
-        <div class="about-photo-wrap">
-          <img src="images/25_08_13 Amanda Cotumaccio_2.jpg" alt="Portrait of Amanda Cotumaccio" class="profile-photo-lg" />
-        </div>
-      </section>
-    
-    
-    
-      <section class="about-details">
-        <div class="about-details-container">
-      
-          <!-- Experience box -->
-          <div class="about-details-box">
+        
+<div class="about-photo-wrap">
+  <img src="images/25_08_13 Amanda Cotumaccio_2.jpg" alt="Portrait of Amanda Cotumaccio" class="profile-photo-lg" />
+</div>
+
+</section>
+
+<section class="about-details-container">
+
+  <!-- Experience box -->
+  <div class="about-details-box">
+
             <h2>Experience</h2>
       
             <div class="experience-entry">
@@ -322,7 +347,7 @@ main{
               </div>
               <span class="experience-year">2022–2026</span>
             </div>
-          </div>
+          
       
         </div>
       </section>

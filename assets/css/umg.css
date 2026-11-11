@@ -39,7 +39,7 @@
   display: block;
 }
 
-.phone-frame {
+/* .phone-frame {
   width: 320px;
   max-height: 600px;
   border: 12px solid #000;
@@ -53,7 +53,7 @@
   width: 100%;
   display: block;
   max-height: none;
-}
+} */
 
 
 .screenshot-frame img.desktop-screenshot {

@@ -1,0 +1,1116 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="">
+  <title>Tye Tribbett – Artist Storefront | Amanda Cotumaccio</title>
+  <script>
+    // If `prefers-color-scheme` is not supported, fall back to dark mode.
+    // In this case, dark.css will be downloaded with `highest` priority.
+    if (window.matchMedia('(prefers-color-scheme: dark)').media === 'not all') {
+      document.documentElement.style.display = 'none';
+      document.head.insertAdjacentHTML(
+        'beforeend',
+        '<link rel="stylesheet" href="assets/css/dark.css" onload="document.documentElement.style.display = \'\'">',
+      );
+    }
+  </script>
+  <!--
+  Conditionally either load the light or the dark stylesheet. The matching file
+  will be downloaded with `highest`, the non-matching file with `lowest`
+  priority. If the browser doesn't support `prefers-color-scheme`, the media
+  query is unknown and the files are downloaded with `lowest` priority (but
+  above I already force `highest` priority for my default light experience).
+-->
+  <link rel="stylesheet" href="assets/css/dark.css" media="(prefers-color-scheme: dark)" />
+  <link rel="stylesheet" href="assets/css/light.css" media="(prefers-color-scheme: light)" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/umg.css">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Staatliches&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<style>
+
+  
+
+/* =========================
+   GENERAL STYLING
+========================= */
+
+:root {
+  --background: #F4F2ED;
+  --text: #2A2930;
+  --muted: #605F5F;
+  --accent: #664A8C;
+  --line: #DAD5DF;
+  --white: #FFFFFF;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* .case-details-section{
+  max-width: 150px;
+} */
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: 'Urbanist', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Figtree', sans-serif;
+}
+
+.case-container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+
+/* =========================
+   PROJECT HEADER
+========================= */
+
+.case-header {
+  padding: 3% 0 20px;
+}
+
+.all-projects-link {
+  display: inline-block;
+  margin-bottom: 35px;
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.all-projects-link:hover {
+  text-decoration: underline;
+}
+
+.case-header h1 {
+  /*Value	Meaning
+36px - Minimum size
+4vw	— 4% of the browser viewport's width.
+52px - Max size*/
+  font-size: clamp(36px, 4vw, 52px);
+  line-height: 1.15;
+}
+
+.case-subtitle {
+  font-size: 20px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-top: 15px;
+}
+
+
+/* =========================
+   LAPTOP MOCKUP
+========================= */
+
+.mockup-section {
+  padding: 15px 0 0;
+}
+
+.mockup-container {
+  width: min(100%, 900px);
+  margin: 0 auto;
+  container-type: inline-size;
+}
+
+.stage {
+  --u: calc(100cqw / 900);
+
+  --metal: #c9ccd1;
+  --metal-dark: #a4a8af;
+  --bezel: #15171a;
+
+  position: relative;
+  width: 100%;
+  height: calc(535 * var(--u));
+}
+
+/* Laptop position */
+
+.stage .laptop {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: calc(660 * var(--u));
+  transform: translateX(-50%);
+  transition: transform .3s ease, filter .3s ease;
+}
+
+.stage .laptop:hover {
+  transform: translateX(-50%) scale(1.04);
+  filter: drop-shadow(0 18px 22px rgba(102, 74, 140, 0.25));
+}
+
+
+/* Laptop screen frame */
+
+.stage .lid {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10.4;
+  background: var(--bezel);
+
+  border-radius:
+    calc(18 * var(--u))
+    calc(18 * var(--u))
+    0 0;
+
+  padding:
+    calc(16 * var(--u))
+    calc(16 * var(--u))
+    calc(20 * var(--u));
+}
+
+/* Camera */
+
+.stage .lid::before {
+  content: "";
+  position: absolute;
+  top: calc(6 * var(--u));
+  left: 50%;
+  width: calc(5 * var(--u));
+  height: calc(5 * var(--u));
+  border-radius: 50%;
+  background: #2c3036;
+  transform: translateX(-50%);
+}
+
+/* Actual screenshot */
+
+.stage .screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #111;
+  border-radius: calc(4 * var(--u));
+}
+
+/* Screen contents (scrolling version) */
+.stage .scroller {
+  position: absolute;
+  inset: 0;                 /* fill the screen */
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+}
+
+.stage .scroller img {
+  display: block;
+  width: 100%;
+  height: auto;             /* natural height, so it can scroll */
+  max-width: 100%;
+  border: 0;
+}
+
+/* Laptop base */
+
+.stage .base {
+  position: relative;
+  width: 112%;
+  height: calc(16 * var(--u));
+  margin-left: -6%;
+
+  background: linear-gradient(
+    var(--metal),
+    var(--metal-dark)
+  );
+
+  border-radius:
+    0 0
+    calc(22 * var(--u))
+    calc(22 * var(--u));
+}
+
+/* Center notch */
+
+.stage .base::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16%;
+  height: calc(6 * var(--u));
+  background: var(--metal-dark);
+  border-radius:
+    0 0
+    calc(10 * var(--u))
+    calc(10 * var(--u));
+}
+
+/* Laptop shadow */
+
+.stage .base::after {
+  content: "";
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: calc(-14 * var(--u));
+  height: calc(14 * var(--u));
+
+  background: radial-gradient(
+    closest-side,
+    rgba(0,0,0,.25),
+    transparent
+  );
+}
+
+
+/* =========================
+   PROJECT METADATA
+========================= */
+
+.case-details {
+  /* ROLE starts at the subtitle's left edge, TOOLS ends at its
+     right edge, remaining space is shared evenly between items */
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto 65px;
+}
+
+.case-details span {
+  display: block;
+  font-family: 'Figtree', sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.case-details > div {
+  text-align: left;
+}
+
+
+
+
+/* =========================
+   CASE STUDY SECTIONS
+========================= */
+
+/* Heading sits at the left edge (under ROLE); content starts
+   where COMPANY starts. --company-x is measured by the script
+   at the bottom of the page; 25% is the fallback. */
+.case-section {
+  display: grid;
+  grid-template-columns: var(--company-x, 25%) minmax(0, 1fr);
+  padding: 42px 0;
+  border-top: 1px solid var(--line);
+}
+
+/* close the block with a matching line under MY CONTRIBUTION */
+.case-section.is-last {
+  border-bottom: 1px solid var(--line);
+}
+
+.case-section > h2 {
+  grid-column: 1;
+  padding-right: 20px;
+}
+
+.case-section > .case-content {
+  grid-column: 2;
+}
+
+.case-section h2 {
+  /* matches .case-details span */
+  margin-top: 0;
+  margin-right: 0;
+  font-family: 'Figtree', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--accent);
+  text-align: left;
+  display: block;
+  margin-bottom: 8px;
+  letter-spacing: 0.08em;
+}
+
+.case-content {
+  max-width: 680px;
+}
+
+.case-content p {
+  margin: 0 0 20px;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.case-content p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================
+   BUTTON SHOWCASE
+========================= */
+
+.showcase {
+  margin: 65px 0 90px;
+  padding: 35px;
+  background: var(--white);
+  border: 1px solid #E0DEE0;
+  border-radius: 20px;
+}
+
+.showcase h2 {
+  font-size: 28px;
+  font-weight: 600;
+  text-align: left;
+  margin: 0 0 10px;
+}
+
+.showcase-description {
+  margin: 0 0 30px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* Default and hover examples */
+
+.button-comparison {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px;
+  margin-bottom: 35px;
+}
+
+.button-example h3 {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0 0 12px;
+}
+
+.button-preview {
+  min-height: 210px;
+  padding: 25px;
+  border-radius: 12px;
+  background: #F4F2ED;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Footer before / after code comparison: stacked, so each
+   snippet gets the full card width */
+
+.showcase .button-comparison {
+  grid-template-columns: 1fr;
+}
+
+.showcase .button-example h3 {
+  text-align: left;
+}
+
+.showcase .button-example {
+  min-width: 0;   /* lets long code scroll inside its block on phones */
+}
+
+/* Footer before / after screenshots */
+
+.footer-shots {
+  display: grid;
+  gap: 25px;
+  margin: 0 0 40px;
+}
+
+.footer-shot h3 {
+  margin: 0 0 12px;
+  font-size: 17px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.footer-shot figure {
+  margin: 0;
+  padding: 15px;
+  border-radius: 12px;
+  background: #F4F2ED;
+}
+
+.footer-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.code-note {
+  margin: 0 0 10px;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.code-block {
+  margin: 0;
+  padding: 20px 22px;
+  border-radius: 12px;
+  background: #2A2930;
+  overflow-x: auto;
+}
+
+.code-block code {
+  display: block;
+  padding: 0;
+  background: none;
+  border-radius: 0;
+  color: #EDE7F5;
+  font-size: 14px;
+  line-height: 1.7;
+  white-space: pre;
+}
+
+.code-block.before {
+  border-left: 4px solid #C9A0A0;
+}
+
+.code-block.after {
+  border-left: 4px solid #A98BD0;
+}
+
+.change-table-wrap {
+  overflow-x: auto;
+  margin: 0 0 35px;
+}
+
+.change-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.change-table th,
+.change-table td {
+  padding: 12px 14px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+
+.change-table th {
+  font-family: 'Figtree', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+}
+
+.change-table td {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Code explanation */
+
+.implementation-note {
+  border-top: 1px solid var(--line);
+  padding-top: 25px;
+}
+
+.implementation-note h3 {
+  margin: 0 0 12px;
+  font-size: 19px;
+}
+
+.implementation-note p {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--muted);
+  margin: 0;
+}
+
+code {
+  background: #EFEAF6;
+  padding: 2px 6px;
+  border-radius: 5px;
+  color: var(--accent);
+}
+
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 760px) {
+
+  .case-header {
+    padding-top: 45px;
+  }
+
+  .case-section {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 30px 0;
+  }
+
+  .case-section > h2,
+  .case-section > .case-content {
+    grid-column: 1;
+    padding-right: 0;
+  }
+
+  .case-details {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 20px;
+    row-gap: 30px;
+    width: 100%;
+    margin-bottom: 45px;
+  }
+
+  .case-details > div {
+    width: 100%;
+    justify-self: stretch;
+    text-align: left;
+  }
+
+  .case-details span,
+  .case-details p {
+    text-align: left;
+  }
+
+  .button-comparison {
+    grid-template-columns: 1fr;
+  }
+
+  .showcase {
+    padding: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .case-details {
+    grid-template-columns: 1fr;
+  }
+
+  .case-content p {
+    font-size: 16px;
+  }
+}
+
+</style>
+</head>
+
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+    
+    <header class="sticky-top">
+    
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    
+        <!-- Name on left -->
+        <a class="navbar-brand" href="index.html">
+          <span class="brand-circle" aria-hidden="true"></span>
+          Amanda Cotumaccio
+        </a>
+    
+        <!-- Hamburger menu -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+    
+          <span class="navbar-toggler-icon"></span>
+    
+        </button>
+    
+        <!-- Navigation links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+    
+          <ul class="navbar-nav">
+    
+            <li class="nav-item">
+              <a class="nav-link" href="projects.html">
+                <span style="font-family: 'dm-sans', sans-serif;">Projects</span>
+              </a>
+            </li>
+    
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">
+                <span style="font-family: 'dm-sans', sans-serif;">About</span>
+              </a>
+            </li>
+    
+            <li class="nav-item">
+              <a
+                href="Amanda Cotumaccio Resume Fall 2026.pdf"
+                class="nav-link"
+                target="_blank"
+                rel="noopener noreferrer">
+    
+                <span style="font-family: 'dm-sans', sans-serif;">Resume ↗&#xfe0e;</span>
+    
+              </a>
+            </li>
+    
+          </ul>
+    
+          <!-- LinkedIn -->
+          <div class="navbar-icons">
+    
+            <a
+              href="https://www.linkedin.com/in/amanda-cotumaccio-709603236/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn">
+    
+              <img
+                src="images/linkedin.png"
+                class="linkedin-icon"
+                alt="">
+    
+              <span class="linkedin-text" style="font-family: 'dm-sans', sans-serif;">
+                LinkedIn ↗&#xfe0e;
+              </span>
+    
+            </a>
+    
+          </div>
+    
+        </div>
+    
+      </nav>
+    
+    </header>
+    
+    
+    <!-- =========================
+         PROJECT HEADER
+    ========================= -->
+    
+    <section class="case-header">
+      <div class="case-container">
+    
+        <h1 style="text-align:left">Tye Tribbett</h1>
+    
+        <p class="case-subtitle">
+          Refactoring an artist storefront's footer with Shopify's
+          native components to fix alignment and make it easier
+          to maintain.
+        </p>
+    
+      </div>
+</section>
+    
+    <!-- Keep the rest of your case study here -->
+    
+
+
+<!-- =========================
+     LAPTOP MOCKUP
+========================= -->
+
+<section class="mockup-section"
+  aria-label="Tye Tribbett storefront preview">
+
+  <div class="case-container">
+
+    <div class="mockup-container">
+
+      <div class="stage">
+        <a href="https://web.archive.org/web/20240811161758/https://store.tyetribbett.com/" target="_blank">
+        <div class="laptop">
+
+          <div class="lid">
+
+            <div class="screen">
+              <div class="scroller">
+                <img src="images/tye-desktop.png"
+                     alt="Tye Tribbett desktop merchandise storefront">
+              </div>
+              <div class="scroll-hint" aria-hidden="true">Scroll to explore ↓</div>
+            </div>
+
+          </div>  <!-- ← this closes .lid; it was missing -->
+
+          <div class="base"></div>
+
+        </div>
+      </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     PROJECT INFORMATION
+========================= -->
+
+<main class="case-container">
+
+  <div class="case-details">
+
+    <div class="case-details-section">
+      <span>ROLE</span>
+      <p>D2C Engineering Intern</p>
+    </div>
+
+    <div class="case-details-section">
+      <span>COMPANY</span>
+      <p>Universal Music Group</p>
+    </div>
+
+    <div class="case-details-section">
+      <span>TIMELINE</span>
+      <p>Summer 2024</p>
+    </div>
+
+    <div class="case-details-section">
+      <span>TOOLS</span>
+      <p>Shopify, Liquid, HTML, CSS</p>
+    </div>
+
+  </div>
+
+
+  <!-- BACKGROUND -->
+
+  <section class="case-section">
+
+    <h2>BACKGROUND</h2>
+
+    <div class="case-content">
+
+      <p>
+        Tye Tribbett is a Grammy-winning gospel artist. During
+        my internship at Universal Music Group (Fame House), I
+        worked on his Shopify merchandise storefront.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- CHALLENGE -->
+
+  <section class="case-section">
+
+    <h2>CHALLENGE</h2>
+
+    <div class="case-content">
+
+      <p>
+        The storefront's footer looked misaligned: the social
+        media icons, navigation links, and legal information
+        didn't line up cleanly with each other.
+      </p>
+
+      <p>
+        The original footer was heavily customized. It used a
+        custom developer container and Font Awesome icons for
+        social links, and positioned elements with absolute
+        positioning and negative margins that were adjusted
+        through several media queries. These manual overrides
+        were fragile across screen sizes and difficult to
+        maintain.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- SOLUTION -->
+
+  <section class="case-section">
+
+    <h2>SOLUTION</h2>
+
+    <div class="case-content">
+
+      <p>
+        I refactored the footer to use Shopify's built-in footer
+        components and the theme's responsive layout utilities
+        instead of custom positioning overrides.
+      </p>
+
+      <p>
+        Social links, navigation, and legal information are now
+        organized into separate sections within the theme's
+        grid, resolving the alignment and spacing issues while
+        keeping the storefront's branding and functionality.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- MY CONTRIBUTION -->
+
+  <section class="case-section is-last">
+
+    <h2>MY CONTRIBUTION</h2>
+
+    <div class="case-content">
+
+      <p>
+        Replaced the custom social icon container with Shopify's
+        <code>social-container</code> component, and swapped
+        Font Awesome icons for inline SVG icons.
+      </p>
+
+      <p>
+        Removed the absolute positioning and negative-margin
+        overrides, and rebuilt the layout with the theme's grid
+        and Flexbox utility classes, such as
+        <code>md:col-span-4</code> and <code>md:flex</code>.
+      </p>
+
+      <p>
+        Applied the theme's typography and color classes in
+        place of custom font sizes and colors, so the footer
+        stays visually consistent with the rest of the
+        storefront.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FOOTER REFACTOR SHOWCASE
+  ========================= -->
+
+  <section class="showcase">
+
+    <h2>Footer Refactor</h2>
+
+    <p class="showcase-description">
+      How the footer's implementation changed, from manual
+      positioning overrides to the theme's built-in components
+      and responsive layout.
+    </p>
+
+    <!-- SCREENSHOTS -->
+
+    <div class="footer-shots">
+
+      <div class="footer-shot">
+        <h3>Before</h3>
+        <figure>
+          <img src="images/tye-footer-before.png"
+               alt="Original Tye Tribbett storefront footer, with social icons, copyright, links, and accessibility notice misaligned across several rows">
+        </figure>
+      </div>
+
+      <div class="footer-shot">
+        <h3>After</h3>
+        <figure>
+          <img src="images/tye-footer-after.png"
+               alt="Refactored Tye Tribbett storefront footer, with social icons on the left and copyright, links, and accessibility notice aligned on the right">
+        </figure>
+      </div>
+
+    </div>
+
+
+    <!-- WHAT CHANGED -->
+
+    <div class="change-table-wrap">
+      <table class="change-table">
+        <thead>
+          <tr>
+            <th scope="col">BEFORE</th>
+            <th scope="col">AFTER</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Custom <code>developer-container</code> for social icons</td>
+            <td>Shopify's <code>social-container</code> component</td>
+          </tr>
+          <tr>
+            <td>Font Awesome icons (<code>fab fa-twitter</code>, etc.)</td>
+            <td>Inline SVG icons</td>
+          </tr>
+          <tr>
+            <td>Custom CSS with absolute positioning and negative margins</td>
+            <td>The theme's existing grid and Flexbox utility classes</td>
+          </tr>
+          <tr>
+            <td>Positioning adjusted manually through several media queries</td>
+            <td>Responsive classes such as <code>md:col-span-4</code> and <code>md:flex</code></td>
+          </tr>
+          <tr>
+            <td>Custom font sizes and colors</td>
+            <td>The theme's typography and color classes</td>
+          </tr>
+          <tr>
+            <td>Social icons and legal information misaligned</td>
+            <td>Social icons and legal information organized into separate sections</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="button-comparison">
+
+      <!-- BEFORE -->
+
+      <div class="button-example">
+
+        <h3>Before</h3>
+
+        <p class="code-note">
+          Elements were pushed into place with absolute
+          positioning and negative margins:
+        </p>
+
+        <pre class="code-block before"><code>.footer-social {
+  min-width: 100%;
+  position: absolute;
+  margin-left: -40%;
+}
+
+.menu-nav {
+  margin-right: -35%;
+  margin-left: -10%;
+}</code></pre>
+
+      </div>
+
+
+      <!-- AFTER -->
+
+      <div class="button-example">
+
+        <h3>After</h3>
+
+        <p class="code-note">
+          Each section sits in the theme's responsive grid instead:
+        </p>
+
+        <pre class="code-block after"><code>&lt;div class=&quot;footer__griditem footer__griditem--0
+            footer__griditem--social
+            md:col-span-4 md:row-span-1&quot;&gt;</code></pre>
+
+      </div>
+
+    </div>
+
+
+    <!-- EXPLANATION -->
+
+    <div class="implementation-note">
+
+      <h3 style="text-align: left;">Implementation Details</h3>
+
+      <p>
+        I refactored the footer using Shopify's native components
+        and responsive layout utilities, resolving alignment and
+        spacing issues while improving visual consistency and
+        maintainability. Rather than adding more overrides, I
+        simplified a heavily customized implementation by
+        building on the theme's existing structure.
+      </p>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <!-- Contact section -->
+    <div class="footer-top">
+      <div class="footer-contact">
+        <h2>Let's connect.</h2>
+        <p>Interested in collaborating or just saying hello?</p>
+        <a href="mailto:amandalcot@gmail.com" class="footer-email">
+          Get in touch ↗
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Bottom section -->
+    <div class="footer-bottom">
+      <p>© 2026 Amanda Cotumaccio</p>
+      <p>Designed &amp; built by me</p>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+  // Start case-section content where the COMPANY detail starts
+  (function () {
+    var details = document.querySelector('.case-details');
+    if (!details || details.children.length < 2) return;
+    function align() {
+      var x = details.children[1].getBoundingClientRect().left -
+              details.getBoundingClientRect().left;
+      document.documentElement.style.setProperty('--company-x', x + 'px');
+    }
+    align();
+    window.addEventListener('resize', align);
+    if (document.fonts) document.fonts.ready.then(align);
+  })();
+
+  document.querySelectorAll('.scroller').forEach(function (el) {
+    el.addEventListener('scroll', function () {
+      el.parentElement.classList.add('has-scrolled');
+    }, { once: true });
+  });
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+<script src="assets/js/global.js"></script>
+
+</body>
+</html>

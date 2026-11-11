@@ -13,7 +13,158 @@
   <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Staatliches&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Staatliches&display=swap" rel="stylesheet">
-  <title>Projects | Amanda Cotumaccio</title>
+<link rel="icon" type="image/png" href="images/favicon.png">
+  <title>All Projects | Amanda Cotumaccio</title>
+<style>
+  /* =========================
+     ALL PROJECTS
+     Smaller, denser cards than the homepage: a browser-window
+     screenshot, details, and tool tags.
+  ========================= */
+
+  body { background: #F4F2ED; }
+
+  .projects-page {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 0 110px;
+  }
+
+  .all-header h1 {
+    margin: 0;
+    font-family: 'Figtree', sans-serif;
+    font-size: clamp(34px, 4vw, 46px);
+    font-weight: 500;
+    text-align: left;
+    color: #2A2930;
+  }
+
+  .all-header p {
+    margin: 10px 0 0;
+    font-size: 18px;
+    color: #605F5F;
+  }
+
+  .all-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 40px 30px;
+    margin-top: 45px;
+  }
+
+  .all-card {
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    border: 1px solid #E6E1EC;
+    border-radius: 16px;
+    overflow: hidden;
+    color: inherit;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(0,0,0,.05);
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+
+  .all-card:hover,
+  .all-card:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px rgba(102, 74, 140, .18);
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .all-card:focus-visible {
+    outline: 3px solid #765a94;
+    outline-offset: 4px;
+  }
+
+  /* Browser-window frame around the screenshot */
+  .browser-frame {
+    margin: 14px 14px 0;
+    border: 1px solid #E6E1EC;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #F7F5F9;
+  }
+
+  .browser-bar {
+    display: flex;
+    gap: 6px;
+    padding: 8px 10px;
+    border-bottom: 1px solid #E6E1EC;
+  }
+
+  .browser-bar span {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #D6CAE7;
+  }
+
+  .browser-frame img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+
+  .all-card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 20px 22px 22px;
+  }
+
+  .all-card-body h2 {
+    margin: 0;
+    font-family: 'Figtree', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    text-align: left;
+    color: #664A8C;
+  }
+
+  .all-card-meta {
+    margin: 4px 0 0;
+    font-size: 14px;
+    color: #2A2930;
+  }
+
+  .all-card-desc {
+    margin: 12px 0 18px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #605F5F;
+  }
+
+  .all-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: auto 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .all-card-tags li {
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: #EFEAF6;
+    color: #664A8C;
+    font-size: 12.5px;
+    font-weight: 600;
+  }
+
+  @media (max-width: 980px) {
+    .all-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 620px) {
+    .all-grid { grid-template-columns: 1fr; }
+    .projects-page { padding-top: 40px; }
+  }
+</style>
 </head>
 
 <body>
@@ -43,14 +194,14 @@
     
           <li class="nav-item">
             <a class="nav-link" href="projects.html">
-              <span>Projects</span>
+              <span style="font-family: 'dm-sans', sans-serif;">Projects</span>
           </a>
           </li>
     
           <li class="nav-item">
             <a class="nav-link" href="about.html">
               
-              <span>About</span>
+              <span style="font-family: 'dm-sans', sans-serif;">About</span>
           
           </a>
           </li>
@@ -60,7 +211,7 @@
              class="nav-link"
              target="_blank"
              rel="noopener noreferrer">
-               <span>Resume ↗&#xfe0e;</span>
+               <span style="font-family: 'dm-sans', sans-serif;">Resume ↗&#xfe0e;</span>
             </a>
           </li>
     
@@ -73,7 +224,7 @@
            rel="noopener"
            aria-label="LinkedIn">
           <img src="images/linkedin.png" alt="">
-           <span class="linkedin-text">LinkedIn ↗&#xfe0e;</span>
+           <span class="linkedin-text" style="font-family: 'dm-sans', sans-serif;">LinkedIn ↗&#xfe0e;</span>
         </a>
     
       </div>
@@ -88,112 +239,88 @@
 
 
 
-    <h2 class="page-title">My Projects</h2>
-   
-<div class="container">
-  <div class="row h-50">
+<main class="projects-page">
 
-<!-- IMMA -->
-<div class="col-12 col-md-6 col-lg-4">
-  <a class="clickable-card" href="imma.html">
-    <div class="card card-home">
+  <div class="all-header">
+    <h1>All Projects</h1>
+    <p>Client work and case studies from my internships and campus roles.</p>
+  </div>
 
-      <div class="card-body">
-        <h3 class="card-title">
-          IMMA Shopify Components & UX Work
-        </h3>
+  <section class="all-grid">
+
+    <a href="imma.html" class="all-card">
+      <div class="browser-frame" aria-hidden="true">
+        <div class="browser-bar"><span></span><span></span><span></span></div>
+        <img src="images/IMMA-desktop.png" alt="" style="object-position: top;">
       </div>
-
-      <div class="card-logo-wrapper">
-        <img
-          class="card-logo"
-          alt="IMMA storefront components"
-          src="images/IMMA-logo.webp"
-        />
+      <div class="all-card-body">
+        <h2>IMMA</h2>
+        <p class="all-card-meta">Irish Museum of Modern Art · 2025</p>
+        <p class="all-card-desc">Redesigning a museum's Shopify storefront to improve navigation and product discovery.</p>
+        <ul class="all-card-tags" aria-label="Tools"><li>Shopify</li><li>Liquid</li><li>HTML</li><li>CSS</li></ul>
       </div>
+      <span class="sr-only">IMMA project</span>
+    </a>
 
-      <div class="card-text-wrapper">
-        <p>
-          See how I improved the Irish Museum of Modern Art's
-          online shopping experience through storefront redesign,
-          navigation updates, and UX enhancements.
-        </p>
+    <a href="lastdinnerparty.html" class="all-card">
+      <div class="browser-frame" aria-hidden="true">
+        <div class="browser-bar"><span></span><span></span><span></span></div>
+        <img src="images/lastdinnerparty-desktop.png" alt="" style="object-position: top;">
       </div>
-
-      <span class="btn">Learn More</span>
-
-    </div>
-  </a>
-</div>
-
-    <!-- UMG -->
-<div class="col-12 col-md-6 col-lg-4">
-  <a class="clickable-card" href="umg.html">
-    <div class="card card-home">
-
-      <div class="card-body">
-        <h3 class="card-title">
-          UMG Artist <br>Storefront<br> Development
-        </h3>
+      <div class="all-card-body">
+        <h2>The Last Dinner Party</h2>
+        <p class="all-card-meta">Universal Music Group · 2024</p>
+        <p class="all-card-desc">Custom artist-branded Shopify buttons with interactive hover states.</p>
+        <ul class="all-card-tags" aria-label="Tools"><li>Shopify</li><li>CSS</li></ul>
       </div>
+      <span class="sr-only">The Last Dinner Party project</span>
+    </a>
 
-      <div class="card-logo-wrapper">
-        <img
-          class="card-logo"
-          alt="UMG artist storefronts"
-          src="images/umg-logo.png"
-        />
+    <a href="tyetribbett.html" class="all-card">
+      <div class="browser-frame" aria-hidden="true">
+        <div class="browser-bar"><span></span><span></span><span></span></div>
+        <img src="images/tye-desktop.png" alt="" style="object-position: top;">
       </div>
-
-      <div class="card-text-wrapper">
-        <p>
-          See how I developed and customized Shopify storefronts at
-          Universal Music Group, creating responsive shopping experiences
-          that reflect each artist's brand.
-        </p>
+      <div class="all-card-body">
+        <h2>Tye Tribbett</h2>
+        <p class="all-card-meta">Universal Music Group · 2024</p>
+        <p class="all-card-desc">Artist merchandise storefront built on UMG's customized Shopify theme.</p>
+        <ul class="all-card-tags" aria-label="Tools"><li>Shopify</li><li>Liquid</li><li>CSS</li></ul>
       </div>
+      <span class="sr-only">Tye Tribbett project</span>
+    </a>
 
-      <span class="btn">Learn More</span>
-
-    </div>
-  </a>
-</div>
-<!-- DPhiE Website -->
-<div class="col-12 col-md-6 col-lg-4">
-  <a class="clickable-card" href="dphie.html">
-    <div class="card card-home">
-
-      <div class="card-body">
-        <h3 class="card-title">
-          DPhiE Pitt<br>Chapter<br>Website
-        </h3>
+    <a href="dphie.html" class="all-card">
+      <div class="browser-frame" aria-hidden="true">
+        <div class="browser-bar"><span></span><span></span><span></span></div>
+        <img src="images/dphie-site-after.png" alt="" style="object-position: top;">
       </div>
-
-      <div class="card-logo-wrapper">
-        <img
-          class="card-logo"
-          alt="DPhiE Pitt website"
-          src="images/dphie-logo.png"
-        />
+      <div class="all-card-body">
+        <h2>Delta Phi Epsilon</h2>
+        <p class="all-card-meta">Pitt Chapter Website · 2025</p>
+        <p class="all-card-desc">Redesigning and migrating a chapter website for prospective members, parents, and campus partners.</p>
+        <ul class="all-card-tags" aria-label="Tools"><li>Wix</li><li>Figma</li><li>CSS</li></ul>
       </div>
+      <span class="sr-only">Delta Phi Epsilon project</span>
+    </a>
 
-      <div class="card-text-wrapper">
-        <p>
-          See how I designed and maintained a multi-page chapter website
-          for Delta Phi Epsilon at Pitt to help prospective members,
-          parents, and campus partners find information.
-        </p>
+    <a href="umg.html" class="all-card">
+      <div class="browser-frame" aria-hidden="true">
+        <div class="browser-bar"><span></span><span></span><span></span></div>
+        <img src="images/screencapture-shop-dermotkennedy-2025-11-17-12_25_57.png" alt="" style="object-position: top;">
       </div>
+      <div class="all-card-body">
+        <h2>More UMG Storefronts</h2>
+        <p class="all-card-meta">Universal Music Group · 2024</p>
+        <p class="all-card-desc">Dermot Kennedy, Rich The Kid, and other artist stores I migrated to Shopify 2.0.</p>
+        <ul class="all-card-tags" aria-label="Tools"><li>Shopify</li><li>Liquid</li><li>HTML</li><li>CSS</li></ul>
+      </div>
+      <span class="sr-only">More UMG storefronts</span>
+    </a>
 
-      <span class="btn">Learn More</span>
+  </section>
 
-    </div>
-  </a>
-</div>
-</div>
-
-
-</div>
+</main>
 <footer class="site-footer">
   <div class="footer-container">
 

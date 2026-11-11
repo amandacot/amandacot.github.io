@@ -114,3 +114,21 @@ if (canvas) {
 
   resizeCanvas();
 }
+
+
+  const SPEED = 80; // pixels per second. Lower = slower, higher = faster
+
+  function setScrollSpeeds() {
+    document.querySelectorAll('.phone-item').forEach(item => {
+      const screen = item.querySelector('.phone-screen');
+      const content = item.querySelector('.phone-content');
+      const distance = content.offsetHeight - screen.offsetHeight;
+      if (distance > 0) {
+        content.style.setProperty('--t', (distance / SPEED) + 's');
+      }
+    });
+  }
+
+  window.addEventListener('load', setScrollSpeeds);   // waits for images to load
+  window.addEventListener('resize', setScrollSpeeds); // phones can change size
+

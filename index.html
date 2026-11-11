@@ -37,10 +37,85 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Staatliches&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="images/favicon.png">
   <title>Home | Amanda Cotumaccio</title>
 </head>
 
 <style>
+/* "Selected Work" heading + "View all projects" button around the project grid */
+.selected-work-header {
+  width: 90%;
+  max-width: 1300px;
+  margin: 30px auto 30px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 20px;
+}
+
+.view-all-link {
+  font-size: 16px;
+  font-weight: 600;
+  color: #664A8C;
+  text-decoration: none;
+}
+
+.view-all-link:hover,
+.view-all-link:focus-visible {
+  color: #664A8C;
+  text-decoration: underline;
+}
+
+.selected-work-header h2 {
+  margin: 0;
+  font-family: 'Figtree', sans-serif;
+  font-size: 38px;
+  text-align: left;
+}
+
+.selected-work-header + .portfolio-projects {
+  margin-top: 45px;
+}
+
+/* Same width as the project grid. Each laptop + phone mockup
+   sits left of its column's centre (the laptop base sticks out
+   on the left, empty space on the right), so the button gets a
+   right margin of ~13.4% of a column to centre it under the
+   artwork (between the two mockups) rather than under the grid. */
+.view-all-projects {
+  width: 90%;
+  max-width: 1300px;
+  margin: -20px auto 100px;
+  text-align: center;
+  container-type: inline-size;
+  --mockup-gap: 0.134;
+}
+
+.view-all-projects .btn-pill {
+  padding: 0.7rem 1.6rem;
+  font-size: 1rem;
+  /* column width = (grid width - 200px gap) / 2 */
+  margin-right: calc((100cqw - 200px) / 2 * var(--mockup-gap));
+}
+
+@media (max-width: 800px) {
+  .view-all-projects {
+    max-width: 600px;
+  }
+
+  /* single column: centre under the one mockup */
+  .view-all-projects .btn-pill {
+    margin-right: calc(100cqw * var(--mockup-gap));
+  }
+}
+
+@media (max-width: 450px) {
+  .view-all-projects {
+    width: 95%;
+  }
+}
+
   .homepage-frame {
   width: 550px;
   max-height: 600px;
@@ -60,14 +135,14 @@
   font-size: 40px;
   }
   p{
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Urbanist', sans-serif;
     color: #605F5F;
   } */
   /* h1,
   h2,
   h3 {
     text-align: center;
-    font-family: 'Urbanist', sans-serif;
+    font-family: 'Figtree', sans-serif;
   } */
   .experience_header{
     text-align: left !important;
@@ -162,14 +237,14 @@
     
           <li class="nav-item">
             <a class="nav-link" href="projects.html">
-              <span>Projects</span>
+              <span style="font-family: 'dm-sans', sans-serif;">Projects</span>
           </a>
           </li>
     
           <li class="nav-item">
             <a class="nav-link" href="about.html">
               
-              <span>About</span>
+              <span style="font-family: 'dm-sans', sans-serif;">About</span>
           
           </a>
           </li>
@@ -179,7 +254,7 @@
              class="nav-link"
              target="_blank"
              rel="noopener noreferrer">
-               <span>Resume ↗&#xfe0e;</span>
+               <span style="font-family: 'dm-sans', sans-serif;">Resume ↗&#xfe0e;</span>
             </a>
           </li>
     
@@ -192,7 +267,7 @@
            rel="noopener"
            aria-label="LinkedIn">
           <img src="images/linkedin.png" alt="">
-           <span class="linkedin-text">LinkedIn ↗&#xfe0e;</span>
+           <span class="linkedin-text" style="font-family: 'dm-sans', sans-serif;">LinkedIn ↗&#xfe0e;</span>
         </a>
     
       </div>
@@ -222,63 +297,158 @@
   </div>
 </section>
 
-<!-- Rest of homepage -->
-<div class="container-fluid">
 
 
-<a class="clickable-card" href="imma.html">
-<section id="projects" class="about-container hero-about">
-    <!-- Right: photo -->
-           <div class="homepage-frame">
-            <img src="images/IMMA.png" alt="IMMA Shop" />    
-        </div>
-    
-    <!-- Left: text -->
-  <div class="">
-    <div class="homepage-tags">
-      <span>2025</span><span>UX/UI Design</span>
-    </div>
-    <h2 style="text-align:left;">Redesigning the IMMA Online Shop</h2>
-    <p class="descriptions">
-      Redesigned the Irish Museum of Modern Art's online store to improve navigation, product discovery, and the overall shopping experience.
-    </p>
 
-    <!-- <div class="cta-row">
-      <a href="projects.html" class="btn-pill">View Projects</a>
-      <a href="Amanda Cotumaccio Resume Fall 2025.pdf" class="btn-pill" target="_blank" rel="noopener">View Resume</a>
-    </div> -->
-  </div>
-
-</section>
-</a>
-
-
-<a class="clickable-card" href="umg.html">
-<section id="projects" class="about-container hero-about">
-  <!-- Right: photo -->
-         <div class="homepage-frame">
-          <img src="images/Homepage - Tye Tribbett.png" alt="IMMA Shop" />    
-      </div>
-  
-  <!-- Left: text -->
-<div class="">
-  <div class="homepage-tags">
-    <span>2024</span><span>Front-End Development</span>
-  </div>
-  <h2 style="text-align:left;">Building Digital Storefronts for Music Artists</h2>
-  <p class="descriptions">
-    Developed and customized Shopify storefronts for Universal Music Group artists, bringing artist branding into the online shopping experience.
-  </p>
-
-  <!-- <div class="cta-row">
-    <a href="projects.html" class="btn-pill">View Projects</a>
-    <a href="Amanda Cotumaccio Resume Fall 2025.pdf" class="btn-pill" target="_blank" rel="noopener">View Resume</a>
-  </div> -->
+<!-- Portfolio Projects -->
+<div class="selected-work-header">
+  <h2>Featured Projects</h2>
 </div>
 
-</section>
-</a>
+<section class="portfolio-projects">
 
+  <!-- PROJECT 1: TYE TRIBBETT -->
+  <a href="tyetribbett.html" class="project-item"
+     aria-label="View Tye Tribbett project">
+
+    <div class="stage">
+
+      <!-- Laptop -->
+      <div class="laptop">
+        <div class="lid">
+          <div class="screen">
+            <img src="images/tye-desktop.png"
+                 alt="Tye Tribbett desktop storefront">
+          </div>
+        </div>
+        <div class="base"></div>
+      </div>
+
+      <!-- Phone -->
+      <div class="phone">
+        <div class="screen">
+          <img src="images/tye-mobile.png"
+               alt="Tye Tribbett mobile storefront">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="project-caption">
+      <h3>Tye Tribbett</h3>
+      <p>Universal Music Group</p>
+    </div>
+
+  </a>
+
+    <!-- PROJECT 1: VCHA -->
+    <a href="imma.html" class="project-item"
+    aria-label="View IMMA project">
+
+   <div class="stage">
+
+     <!-- Laptop -->
+     <div class="laptop">
+       <div class="lid">
+         <div class="screen">
+           <img src="images/imma-zoom.png"
+                alt="IMMA desktop storefront">
+         </div>
+       </div>
+       <div class="base"></div>
+     </div>
+
+     <!-- Phone -->
+     <div class="phone">
+       <div class="screen">
+         <img src="images/IMMA-mobile.png"
+              alt="IMMA mobile storefront">
+       </div>
+     </div>
+
+   </div>
+
+   <div class="project-caption">
+     <h3>IMMA</h3>
+     <p>Irish Museum of Modern Art</p>
+   </div>
+
+ </a>
+
+  <!-- PROJECT 3: DELTA PHI EPSILON -->
+  <a href="dphie.html" class="project-item"
+     aria-label="View Delta Phi Epsilon project">
+
+    <div class="stage">
+
+      <!-- Laptop -->
+      <div class="laptop">
+        <div class="lid">
+          <div class="screen">
+            <img src="images/dphie-site-after.png"
+                 alt="Delta Phi Epsilon chapter website on desktop">
+          </div>
+        </div>
+        <div class="base"></div>
+      </div>
+
+      <!-- Phone -->
+      <div class="phone">
+        <div class="screen">
+          <img src="images/dphie-mobile.png"
+               alt="Delta Phi Epsilon chapter website on mobile">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="project-caption">
+      <h3>Delta Phi Epsilon</h3>
+      <p>Pitt Chapter Website</p>
+    </div>
+
+  </a>
+
+
+  <!-- PROJECT 4: THE LAST DINNER PARTY -->
+  <a href="lastdinnerparty.html" class="project-item"
+     aria-label="View The Last Dinner Party project">
+
+    <div class="stage">
+
+      <!-- Laptop -->
+      <div class="laptop">
+        <div class="lid">
+          <div class="screen">
+            <img src="images/lastdinnerparty-desktop.png"
+                 alt="The Last Dinner Party desktop storefront">
+          </div>
+        </div>
+        <div class="base"></div>
+      </div>
+
+      <!-- Phone -->
+      <div class="phone">
+        <div class="screen">
+          <img src="images/LastDinnerParty-mobile.png"
+               alt="The Last Dinner Party mobile storefront">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="project-caption">
+      <h3>The Last Dinner Party</h3>
+      <p>Universal Music Group</p>
+    </div>
+
+  </a>
+
+</section>
+
+<div class="view-all-projects">
+  <a href="projects.html" class="btn-pill">View all projects →</a>
+</div>
 
 
 
@@ -346,7 +516,7 @@
   </div>
 </section> -->
 
-</div>
+
 
 <footer class="site-footer">
   <div class="footer-container">

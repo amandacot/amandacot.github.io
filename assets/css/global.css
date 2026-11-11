@@ -1,6 +1,10 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:ital,wght@0,300;1,300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:ital,wght@0,300;1,300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:ital,wght@0,300;1,300&display=swap"); */
+
+/* DM Sans is only used for the navbar links */
+/* opsz axis = optical sizing, so it renders like the Google Fonts preview */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300..700&display=swap");
 :root {
   /* --background-color: #5A4D93; */
    --background-color: #B7A3CC;
@@ -25,6 +29,415 @@
   /* --nav-color-opaque: #FBFFF1;  */
   --nav-color-opaque: #2C2C2C;
 }
+
+.stage .scroller {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+.stage .scroller img {
+  display: block;
+  width: 100%;
+  height: auto;          /* natural height, so it scrolls */
+}
+
+/* "Scroll to explore" cue */
+.stage .scroll-hint {
+  position: absolute;
+  left: 50%;
+  bottom: calc(14 * var(--u));
+  transform: translateX(-50%);
+  padding: calc(6 * var(--u)) calc(14 * var(--u));
+  border-radius: 999px;
+  background: rgba(21, 23, 26, .85);
+  color: #fff;
+  font-size: max(11px, calc(14 * var(--u)));
+  pointer-events: none;
+  transition: opacity .3s ease;
+  animation: hint-bob 1.8s ease-in-out infinite;
+}
+.stage .screen.has-scrolled .scroll-hint { opacity: 0; }
+
+@keyframes hint-bob {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%      { transform: translateX(-50%) translateY(calc(-4 * var(--u))); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stage .scroll-hint { animation: none; }
+}
+
+/* HOMEPAGE PROJECT GRID */
+
+.portfolio-projects {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 200px;
+  row-gap: 150px;
+  width: 90%;
+  max-width: 1300px;
+  margin: 80px auto;
+}
+
+
+/* ENTIRE PROJECT HOVER EFFECT */
+
+
+/* PROJECT ZOOM EFFECT */
+
+.project-item {
+  display: block;
+  min-width: 0;
+  text-decoration: none;
+  color: inherit;
+
+  transform: scale(1);
+
+  transition:
+    transform 0.35s ease,
+    filter 0.35s ease;
+}
+
+/* Zoom in on hover */
+
+.project-item:hover,
+.project-item:focus-visible {
+  transform: scale(1.02);
+
+  filter: drop-shadow(
+    0 18px 22px rgba(102, 74, 140, 0.25)
+  );
+
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Keyboard accessibility */
+
+.project-item:focus-visible {
+  outline: 3px solid #765a94;
+  outline-offset: 8px;
+  border-radius: 12px;
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .project-item {
+    transition: none;
+  }
+
+  .project-item:hover,
+  .project-item:focus-visible {
+    transform: scale(0.96);
+  }
+}
+
+
+/* Keyboard accessibility */
+
+.project-item:focus-visible {
+  outline: 3px solid #765a94;
+  outline-offset: 8px;
+  border-radius: 12px;
+}
+
+/* MOCKUP CONTAINER */
+
+.device-mockup {
+  position: relative;
+  width: 100%;
+  padding: 20px 0 20px 10%;
+  transition: transform 0.3s ease;
+}
+
+.project-item:hover .device-mockup {
+  transform: translateY(-5px);
+}
+
+
+/* REALISTIC LAPTOP + PHONE MOCKUP */
+
+.project-item {
+  container-type: inline-size;
+}
+
+.stage {
+  --u: calc(100cqw / 1050);
+  --metal: #c9ccd1;
+  --metal-dark: #a4a8af;
+  --bezel: #15171a;
+  --frame: #0b0c0e;
+
+  position: relative;
+  width: 100%;
+  height: calc(620 * var(--u));
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* LAPTOP */
+
+.stage .laptop {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: calc(760 * var(--u));
+}
+
+.stage .lid {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10.4;
+  background: var(--bezel);
+  border-radius:
+    calc(18 * var(--u))
+    calc(18 * var(--u))
+    0 0;
+  padding:
+    calc(16 * var(--u))
+    calc(16 * var(--u))
+    calc(20 * var(--u));
+  box-sizing: border-box;
+}
+
+/* LAPTOP CAMERA */
+
+.stage .lid::before {
+  content: "";
+  position: absolute;
+  top: calc(6 * var(--u));
+  left: 50%;
+  width: calc(5 * var(--u));
+  height: calc(5 * var(--u));
+  border-radius: 50%;
+  background: #2c3036;
+  transform: translateX(-50%);
+}
+
+/* LAPTOP BASE */
+
+.stage .base {
+  position: relative;
+  width: 112%;
+  height: calc(16 * var(--u));
+  margin-left: -6%;
+  background: linear-gradient(
+    var(--metal),
+    var(--metal-dark)
+  );
+  border-radius:
+    0 0
+    calc(22 * var(--u))
+    calc(22 * var(--u));
+}
+
+/* CENTER NOTCH */
+
+.stage .base::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16%;
+  height: calc(6 * var(--u));
+  background: var(--metal-dark);
+  border-radius:
+    0 0
+    calc(10 * var(--u))
+    calc(10 * var(--u));
+}
+
+/* LAPTOP SHADOW */
+
+.stage .base::after {
+  content: "";
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: calc(-14 * var(--u));
+  height: calc(14 * var(--u));
+  background: radial-gradient(
+    closest-side,
+    rgba(0,0,0,.35),
+    transparent
+  );
+}
+
+/* PHONE */
+
+.stage .phone {
+  position: absolute;
+  right: 10%;
+  bottom: calc(-10 * var(--u));
+  width: calc(230 * var(--u));
+  aspect-ratio: 9 / 19.5;
+  background: var(--frame);
+  border-radius: calc(36 * var(--u));
+  padding: calc(6 * var(--u));
+  box-sizing: border-box;
+  box-shadow:
+    0 0 0 calc(3 * var(--u)) var(--frame),
+    0 0 0 calc(4 * var(--u)) #3a3d43,
+    0 calc(14 * var(--u))
+      calc(28 * var(--u))
+      rgba(0,0,0,.28);
+  z-index: 2;
+}
+
+/* PHONE SIDE BUTTONS */
+
+.stage .phone::after {
+  content: "";
+  position: absolute;
+  left: calc(-6 * var(--u));
+  top: calc(62 * var(--u));
+  width: calc(3 * var(--u));
+  height: calc(16 * var(--u));
+  border-radius: 2px 0 0 2px;
+  background: var(--frame);
+  box-shadow:
+    0 calc(30 * var(--u)) 0 var(--frame),
+    0 calc(66 * var(--u)) 0 var(--frame);
+}
+
+/* DEVICE SCREENS */
+
+.stage .screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: white;
+}
+
+.stage .lid .screen {
+  border-radius: calc(4 * var(--u));
+}
+
+.stage .phone .screen {
+  border-radius: calc(30 * var(--u));
+}
+
+/* STATIC SCREENSHOTS */
+
+.stage .screen img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  border: 0;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+  .portfolio-projects {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    row-gap: 60px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-item .stage {
+    transition: none;
+  }
+}
+
+
+/* PHONE */
+
+.device-mockup .phone {
+  position: absolute;
+  width: 24%;
+  left: 0;
+  bottom: 0;
+  background: #fdfcf9;
+  border: 2px solid #292929;
+  border-radius: 24px;
+  padding: 7px;
+  z-index: 3;
+}
+
+.device-mockup .phone-screen {
+  width: 100%;
+  aspect-ratio: 9 / 19.5;
+  overflow: hidden;
+  border: 1px solid #292929;
+  border-radius: 17px;
+  background: white;
+}
+
+.device-mockup .phone-screen img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* PROJECT CAPTIONS */
+
+/* Captions line up with the laptop's left edge (and the
+   "Selected Work" heading), not the centre of the mockup */
+
+.project-caption h3 {
+  text-align: left;
+  font-family: 'Figtree', sans-serif;
+  font-size: 28px;
+  margin-bottom: 5px;
+  color: #664A8C;
+}
+
+.project-caption p {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 16px;
+  color: var(--nav-color);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 800px) {
+  .portfolio-projects {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    row-gap: 60px;
+  }
+}
+
+@media (max-width: 450px) {
+  .portfolio-projects {
+    width: 95%;
+    margin: 40px auto;
+  }
+
+  .laptop-frame {
+    padding: 15px 7px 8px;
+    border-radius: 15px 15px 0 0;
+  }
+
+  .laptop-base {
+    height: 14px;
+  }
+
+  .device-mockup .phone {
+    padding: 5px;
+    border-radius: 18px;
+  }
+
+  .device-mockup .phone-screen {
+    border-radius: 12px;
+  }
+}
+
+.cap{
+  text-align: center;
+  margin-top:18px;
+}
+
 /* Desktop */
 .linkedin-icon {
   display: block;
@@ -59,7 +472,9 @@ strong{
   min-height: 0;
   display: flex;
   align-items: center;
-  padding: 60px max(40px, calc((100vw - 1200px) / 2));
+  /* Side padding matches the "Selected Work" grid below
+     (90% wide, max 1300px, centred) so the left edges line up */
+  padding: 60px max(5%, calc((100% - 1300px) / 2));
   background: #F4F2ED;
   overflow: hidden;
 }
@@ -71,6 +486,9 @@ strong{
   height: 100%;
   display: block;
   z-index: 0;
+  /* Fade the grid out toward the bottom so it blends into the page */
+  -webkit-mask-image: linear-gradient(to bottom, #000 45%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 45%, transparent 100%);
 }
 
 .hero-content {
@@ -162,7 +580,7 @@ header {
 }
 
 .footer-contact h2 {
-  font-family: 'Urbanist', sans-serif;
+  font-family: 'Figtree', sans-serif;
   font-size: 30px;
   text-align: left;
   margin: 0 0 10px;
@@ -525,10 +943,17 @@ header {
   transition: transform 0.25s ease;  
 }
 .xp-meta{
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Urbanist', sans-serif;
 }
 
 span{
+  font-family: 'Urbanist', sans-serif;
+}
+
+/* Navbar link text is inside spans, so override the rule above
+   for the navbar only */
+.navbar-nav .nav-link span,
+.navbar-icons a span {
   font-family: 'DM Sans', sans-serif;
 }
 
@@ -563,7 +988,7 @@ html {
   max-width: 56ch;
   margin-top: 20px;
   margin-bottom: 20px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Urbanist', sans-serif;
 }
 
 /* Photo on the right, larger, clean framing */
@@ -816,6 +1241,7 @@ html {
   text-decoration:none;
   font-weight:600; font-size:.95rem; transition:all .2s ease;
   box-shadow:0 3px 2px rgba(0,0,0,.05);
+  font-family: 'urbanist', sans-serif;
 }
 .btn-pill:hover,.btn-pill:focus-visible{
   background:#664A8C; 
@@ -882,16 +1308,19 @@ body {
     body a:hover {
       color: var(--foreground-accent); }
 
+/* Site-wide fonts: Figtree for headings, Urbanist for all other text */
+
 h1, h2, h3, h4, h5, h6 {
-font-family: 'Urbanist', sans-serif;
+font-family: 'Figtree', sans-serif;
 color: #2A2930;
 }
 
 p, ul {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'dm sans', sans-serif;
   color: #605F5F;
+  font-size: 17px; 
   font-weight: 300;
-  font-size: 17px; }
+}
   p.centered-paragraph, ul.centered-paragraph {
     text-align: center;
     font-size: 1em;
@@ -1070,6 +1499,237 @@ main {
 
 
 
+/* =================================
+   PHONE GRID
+================================= 
+
+.phone-grid {
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  justify-content: center;
+  column-gap: 12%;                          /* fixed px instead of % 
+  row-gap: clamp(60px, 8vw, 140px);
+  /* 60px: Minimum spacing
+8vw: Responsive spacing based on viewport width
+140px: Maximum spacing
+margin-bottom:10%;
+margin-top: 5%;
+}
+
+.phone-item {
+  display: block;
+  width: 300px;                 /* was 300px with max-width: 100% 
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* Stagger middle column 
+.phone-item:nth-child(3n + 2) {
+  margin-top: 72px;
+}
+
+/* =================================
+   PHONE FRAME
+================================= 
+
+.phone-frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 600px; 
+  background: #000;
+  border: 3px solid #8d7898;
+  border-radius: 45px;
+  padding: 45px 10px;
+  box-sizing: border-box;
+
+  box-shadow:
+    inset 0 0 0 2px #34283d,
+    0 20px 35px rgba(0, 0, 0, 0.18);
+
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Lift only the phone, not its grid wrapper 
+.phone-item:hover .phone-frame,
+.phone-item:focus-visible .phone-frame {
+  transform: translateY(-8px);
+
+  box-shadow:
+  inset 0 0 0 2px #34283d,
+  0 20px 35px rgba(0, 0, 0, 0.18),
+  0 25px 55px rgba(102, 74, 140, 0.35);
+}
+
+.phone-item:focus-visible {
+  outline: 3px solid #765a94;
+  outline-offset: 8px;
+  border-radius: 45px;
+}
+
+/* =================================
+   AUTOMATIC SCREEN SCROLL
+================================= 
+
+.phone-screen {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+  position: relative;
+}
+
+/* Screenshot container 
+.phone-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  transition:
+  top 5s ease-in-out,
+    transform 5s ease-in-out;
+}
+
+.phone-content img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Scroll on hover 
+.phone-item:hover .phone-content,
+.phone-item:focus-visible .phone-content {
+  top: 100%;
+  transform: translateY(-100%);
+    /* Original speed calculated by JavaScript 
+    transition:
+    top var(--t, 6s) linear,
+    transform var(--t, 6s) linear;
+
+}
+
+/* =================================
+   PHONE DETAILS
+================================= */
+
+/* Front camera 
+.phone-camera {
+  position: absolute;
+  top: 22px;
+  left: 35%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    #18235c 20%,
+    #6b217d 65%,
+    #e1389d 100%
+  );
+}
+
+/* Small sensor 
+.phone-sensor {
+  position: absolute;
+  top: 24px;
+  left: 60%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    #152053,
+    #070710
+  );
+}
+
+/* Bottom home indicator 
+.home-indicator {
+  position: absolute;
+  bottom: 17px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  border-radius: 10px;
+  background: white;
+}
+
+/* Left side button 
+.phone-frame::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 100px;
+  width: 3px;
+  height: 65px;
+  border-radius: 3px;
+  background: #9a87a3;
+}
+
+/* Right side button 
+.phone-frame::after {
+  content: "";
+  position: absolute;
+  right: -5px;
+  top: 140px;
+  width: 3px;
+  height: 65px;
+  border-radius: 3px;
+  background: #9a87a3;
+}
+
+
+
+/* =================================
+   RESPONSIVE GRID
+
+
+@media (max-width: 900px) {
+  .phone-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .phone-item:nth-child(3n + 2) {
+    margin-top: 0;
+  }
+
+  .phone-item:nth-child(2n) {
+    margin-top: 72px;
+  }
+}
+
+@media (max-width: 560px) {
+  .phone-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .phone-item:nth-child(2n) {
+    margin-top: 0;
+  }
+}
+
+/* =================================
+   REDUCED MOTION
+
+
+@media (prefers-reduced-motion: reduce) {
+  .phone-frame,
+  .phone-content {
+    transition: none;
+  }
+
+  .phone-item:hover .phone-frame,
+  .phone-item:focus-visible .phone-frame,
+  .phone-item:hover .phone-content,
+  .phone-item:focus-visible .phone-content {
+    transform: none;
+  }
+}
 
 
 

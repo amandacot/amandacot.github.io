@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 
@@ -5,32 +6,447 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="">
+  <title>DPhiE – Chapter Website Redesign | Amanda Cotumaccio</title>
+  <script>
+    // If `prefers-color-scheme` is not supported, fall back to dark mode.
+    // In this case, dark.css will be downloaded with `highest` priority.
+    if (window.matchMedia('(prefers-color-scheme: dark)').media === 'not all') {
+      document.documentElement.style.display = 'none';
+      document.head.insertAdjacentHTML(
+        'beforeend',
+        '<link rel="stylesheet" href="assets/css/dark.css" onload="document.documentElement.style.display = \'\'">',
+      );
+    }
+  </script>
+  <!--
+  Conditionally either load the light or the dark stylesheet. The matching file
+  will be downloaded with `highest`, the non-matching file with `lowest`
+  priority. If the browser doesn't support `prefers-color-scheme`, the media
+  query is unknown and the files are downloaded with `lowest` priority (but
+  above I already force `highest` priority for my default light experience).
+-->
+  <link rel="stylesheet" href="assets/css/dark.css" media="(prefers-color-scheme: dark)" />
+  <link rel="stylesheet" href="assets/css/light.css" media="(prefers-color-scheme: light)" />
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/global.css">
   <link rel="stylesheet" href="assets/css/umg.css">
-  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Staatliches&display=swap" rel="stylesheet">
 
-  <title>DPhiE – UX Work | Amanda Cotumaccio</title>
-</head>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Staatliches&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<style>
 
   
-<body>
-  <style>
-    .h2{
-    text-align: left !important;}
 
+/* =========================
+   GENERAL STYLING
+========================= */
 
-
-.section-description {
-  font-family: 'DM Sans', sans-serif;
+:root {
+  --background: #F4F2ED;
+  --text: #2A2930;
+  --muted: #605F5F;
+  --accent: #664A8C;
+  --line: #DAD5DF;
+  --white: #FFFFFF;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+/* .case-details-section{
+  max-width: 150px;
+} */
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: 'Urbanist', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Figtree', sans-serif;
+}
+
+.case-container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+
+/* =========================
+   PROJECT HEADER
+========================= */
+
+.case-header {
+  padding: 3% 0 20px;
+}
+
+.all-projects-link {
+  display: inline-block;
+  margin-bottom: 35px;
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.all-projects-link:hover {
+  text-decoration: underline;
+}
+
+.case-header h1 {
+  /*Value	Meaning
+36px - Minimum size
+4vw	— 4% of the browser viewport's width.
+52px - Max size*/
+  font-size: clamp(36px, 4vw, 52px);
+  line-height: 1.15;
+}
+
+.case-subtitle {
+  font-size: 20px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-top: 15px;
+}
+
+
+/* =========================
+   LAPTOP MOCKUP
+========================= */
+
+.mockup-section {
+  padding: 15px 0 0;
+}
+
+.mockup-container {
+  width: min(100%, 900px);
+  margin: 0 auto;
+  container-type: inline-size;
+}
+
+.stage {
+  --u: calc(100cqw / 900);
+
+  --metal: #c9ccd1;
+  --metal-dark: #a4a8af;
+  --bezel: #15171a;
+
+  position: relative;
+  width: 100%;
+  height: calc(535 * var(--u));
+}
+
+/* Laptop position */
+
+.stage .laptop {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: calc(660 * var(--u));
+  transform: translateX(-50%);
+  transition: transform .3s ease, filter .3s ease;
+}
+
+.stage .laptop:hover {
+  transform: translateX(-50%) scale(1.04);
+  filter: drop-shadow(0 18px 22px rgba(102, 74, 140, 0.25));
+}
+
+
+/* Laptop screen frame */
+
+.stage .lid {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10.4;
+  background: var(--bezel);
+
+  border-radius:
+    calc(18 * var(--u))
+    calc(18 * var(--u))
+    0 0;
+
+  padding:
+    calc(16 * var(--u))
+    calc(16 * var(--u))
+    calc(20 * var(--u));
+}
+
+/* Camera */
+
+.stage .lid::before {
+  content: "";
+  position: absolute;
+  top: calc(6 * var(--u));
+  left: 50%;
+  width: calc(5 * var(--u));
+  height: calc(5 * var(--u));
+  border-radius: 50%;
+  background: #2c3036;
+  transform: translateX(-50%);
+}
+
+/* Actual screenshot */
+
+.stage .screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #111;
+  border-radius: calc(4 * var(--u));
+}
+
+/* Screen contents (scrolling version) */
+.stage .scroller {
+  position: absolute;
+  inset: 0;                 /* fill the screen */
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+}
+
+.stage .scroller img {
+  display: block;
+  width: 100%;
+  height: auto;             /* natural height, so it can scroll */
+  max-width: 100%;
+  border: 0;
+}
+
+/* Laptop base */
+
+.stage .base {
+  position: relative;
+  width: 112%;
+  height: calc(16 * var(--u));
+  margin-left: -6%;
+
+  background: linear-gradient(
+    var(--metal),
+    var(--metal-dark)
+  );
+
+  border-radius:
+    0 0
+    calc(22 * var(--u))
+    calc(22 * var(--u));
+}
+
+/* Center notch */
+
+.stage .base::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16%;
+  height: calc(6 * var(--u));
+  background: var(--metal-dark);
+  border-radius:
+    0 0
+    calc(10 * var(--u))
+    calc(10 * var(--u));
+}
+
+/* Laptop shadow */
+
+.stage .base::after {
+  content: "";
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: calc(-14 * var(--u));
+  height: calc(14 * var(--u));
+
+  background: radial-gradient(
+    closest-side,
+    rgba(0,0,0,.25),
+    transparent
+  );
+}
+
+
+/* =========================
+   PROJECT METADATA
+========================= */
+
+.case-details {
+  /* ROLE starts at the subtitle's left edge, TOOLS ends at its
+     right edge, remaining space is shared evenly between items */
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto 65px;
+}
+
+.case-details span {
+  display: block;
+  font-family: 'Figtree', sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.case-details > div {
+  text-align: left;
+}
+
+
+
+
+/* =========================
+   CASE STUDY SECTIONS
+========================= */
+
+/* Heading sits at the left edge (under ROLE); content starts
+   where COMPANY starts. --company-x is measured by the script
+   at the bottom of the page; 25% is the fallback. */
+.case-section {
+  display: grid;
+  grid-template-columns: var(--company-x, 25%) minmax(0, 1fr);
+  padding: 42px 0;
+  border-top: 1px solid var(--line);
+}
+
+/* close the block with a matching line under MY CONTRIBUTION */
+.case-section.is-last {
+  border-bottom: 1px solid var(--line);
+}
+
+.case-section > h2 {
+  grid-column: 1;
+  padding-right: 20px;
+}
+
+.case-section > .case-content {
+  grid-column: 2;
+}
+
+.case-section h2 {
+  /* matches .case-details span */
+  margin-top: 0;
+  margin-right: 0;
+  font-family: 'Figtree', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--accent);
+  text-align: left;
+  display: block;
+  margin-bottom: 8px;
+  letter-spacing: 0.08em;
+}
+
+.case-content {
+  max-width: 680px;
+}
+
+.case-content p {
+  margin: 0 0 20px;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.case-content p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================
+   BUTTON SHOWCASE
+========================= */
+
+.showcase {
+  margin: 65px 0 90px;
+  padding: 35px;
+  background: var(--white);
+  border: 1px solid #E0DEE0;
+  border-radius: 20px;
+}
+
+.showcase h2 {
+  font-size: 28px;
+  font-weight: 600;
+  text-align: left;
+  margin: 0 0 10px;
+}
+
+.showcase-description {
+  margin: 0 0 30px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* Default and hover examples */
+
+.button-comparison {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px;
+  margin-bottom: 35px;
+}
+
+.button-example h3 {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0 0 12px;
+}
+
+.button-preview {
+  min-height: 210px;
+  padding: 25px;
+  border-radius: 12px;
+  background: #F4F2ED;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* =========================
+   THE REDESIGN (original design)
+========================= */
+
 .redesign-section {
-  background: white;
+  padding: 45px 0 90px;
+}
+
+.redesign-container {
   padding: 30px;
-  border-radius: 8px;
+  background-color: var(--white);
+  border-radius: 24px;
+  border: 1px solid #e2e2e2;
+}
+
+.case-heading {
+  font-family: 'Figtree', sans-serif;
+  font-size: 38px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.case-intro {
+  font-size: 17px;
+  color: var(--muted);
 }
 
 .comparison-grid {
@@ -40,49 +456,12 @@
   margin-top: 40px;
 }
 
-.comparison-item {
-  min-width: 0;
-}
-
-.comparison-item h3 {
-  text-align: center;
-  font-family: 'Urbanist', sans-serif;
-  font-size: 22px;
-  margin-bottom: 12px;
-}
-
-
-.comparison-image {
-  background: #F7F7F7;
-  border: 1px solid #E0E0E0;
-  border-radius: 12px;
-  padding: 12px;
-
-  height: 650px;
-
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.comparison-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: top;
-  border-radius: 8px;
-}
-
-
 .redesign-item {
-  background: transparent;
-  padding: 0;
   min-width: 0;
 }
 
 .redesign-item h3 {
-  font-family: 'Urbanist', sans-serif;
+  font-family: 'Figtree', sans-serif;
   font-size: 24px;
   font-weight: 500;
   text-align: left;
@@ -99,11 +478,12 @@
   justify-content: center;
   align-items: flex-start;
   overflow: hidden;
-  border:1px solid #e2e2e2;
+  border: 1px solid #e2e2e2;
+  transition: transform 0.25s ease;
 }
-.redesign-image:hover{
-  transform: translateY(-4px) !important;
-  transition: transform 0.25s ease !important;
+
+.redesign-image:hover {
+  transform: translateY(-4px);
 }
 
 .redesign-image img {
@@ -115,479 +495,545 @@
 }
 
 @media (max-width: 768px) {
-  .redesign-image {
-    height: 450px;
-  }
-}
-
-
-@media (max-width: 768px) {
-  .comparison-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .comparison-image {
-    height: 450px;
-  }
-}
-/* Overall case study */
-.case-study {
-  background: #F4F2ED;
-  color: #2A2930;
-}
-
-/* Hero */
-.case-hero {
-  background: linear-gradient(
-    180deg,
-    #F0EBF5 0%,
-    #F4F2ED 100%
-  );
-  padding: 55px 0 80px;
-}
-
-.back-link {
-  display: inline-block;
-  color: #2A2930;
-  text-decoration: none;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 15px;
-  margin-bottom: 55px;
-}
-
-.back-link:hover {
-  color: #664A8C;
-}
-
-.case-hero h1 {
-  font-family: 'Urbanist', sans-serif;
-  font-size: clamp(36px, 5vw, 56px);
-  font-weight: 500;
-  line-height: 1.15;
-  margin-bottom: 20px;
-  text-align:left;
-}
-
-.case-subtitle {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 19px;
-  line-height: 1.6;
-  color: #605F5F;
-  margin-bottom: 50px;
-}
-
-.case-hero-image {
-  display: block;
-  width: 100%;
-  max-height: 550px;
-  object-fit: contain;
-  border-radius: 12px;
-  margin-bottom: 40px;
-}
-
-/* Project details */
-.case-details {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-}
-
-.case-details span {
-  font-family: 'Urbanist', sans-serif;
-  color: #664A8C;
-  font-size: 13px;
-  font-weight: 400;
-  letter-spacing: 1.5px;
-}
-
-.case-details p {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 16px;
-  margin-top: 8px;
-  color: #2A2930;
-}
-
-/* Text sections */
-.case-section {
-  padding-bottom:65px;
-}
-
-.case-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 80px;
-}
-
-.case-label {
-  font-size: 17px;
-  font-weight: 500;
-  letter-spacing: 1px;
-  color: #664A8C;
-  margin-bottom: 18px;
-  text-align: left;
-}
-
-.case-section p {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 17px;
-  line-height: 1.75;
-  color: #605F5F;
-}
-
-/* Before and after */
-.redesign-section {
-  background: #F4F2EC;
-}
-
-.case-heading {
-  font-family: 'Urbanist', sans-serif;
-  font-size: 38px;
-  font-weight: 400;
-  margin-bottom: 15px;
-  text-align: left;
-}
-
-.comparison-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 30px;
-}
-
-.case-container {
-  max-width: 1150px;
-  margin: 0 auto;
-  padding: 0px 30px;
-}
-
-.comparison-item{
-  border-radius: 12px;
-  padding: 20px;
-  min-height: 220px;
-}
-
-
-.redesign-container {
-  max-width: 1150px;
-  margin: 0 auto;
-  padding: 30px 30px;
-background-color:white;
-border-radius:24px;
-border:1px solid #e2e2e2;
-}
-
-
-.comparison-item h3 {
-  font-family: 'Urbanist', sans-serif;
-  font-size: 22px;
-  margin-bottom: 20px;
-  text-align:left;
-}
-
-.comparison-item img {
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 8px;
-  display: block;
-}
-
-.screenshot-frame {
-  background: #f7f7f7;
-  border-radius: 12px;
-  border: 1px solid #e2e2e2;
-  padding: 0.75rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 220px;
-  /* adjust as needed */
-}
-
-.screenshot-frame img {
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 8px;
-  display: block;
-}
-
-
-/* Responsive layout */
-@media (max-width: 768px) {
-  .case-container {
-    padding: 0 20px;
-  }
-
-  .case-hero {
-    padding: 35px 0 55px;
-  }
-
-  .back-link {
-    margin-bottom: 35px;
-  }
-
-  .case-grid,
   .comparison-grid {
     grid-template-columns: 1fr;
     gap: 35px;
   }
 
-  .case-details {
-    grid-template-columns: 1fr;
-    gap: 15px;
+  .redesign-image {
+    height: 450px;
   }
 }
-.case-section.redesign-section {
-  padding: 45px 5% !important;
+
+/* Original Shopify button art */
+
+.custom-button {
+  border: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
+  background-image:
+    url("https://web.archive.org/web/20240707120156im_/http://cdn.shopify.com/s/files/1/0578/8283/7081/files/TLDP-Button.png");
+
+  padding: 26px 47px;
+  font-size: 20px;
+  font-family: Georgia, serif;
+  color: #e7e0d6;
+
+  cursor: pointer;
 }
 
-    
-  </style>
-<header class="sticky-top">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+/* Hover artwork */
 
-    <!-- Name on left (links to homepage) -->
-    <a class="navbar-brand" href="index.html">
-      <span class="brand-circle" aria-hidden="true"></span>
-      Amanda Cotumaccio
-    </a>
-  
-    <!-- Hamburger menu for mobile -->
-    <button class="navbar-toggler" type="button"
-      data-toggle="collapse"
-      data-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <!-- Center navigation links -->
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-  
-        <li class="nav-item">
-          <a class="nav-link" href="projects.html">
-            <span>Projects</span>
+.custom-button:hover,
+.custom-button:focus-visible,
+.custom-button.is-hover {
+  background-image:
+    url("https://web.archive.org/web/20240707120156im_/https://cdn.shopify.com/s/files/1/0578/8283/7081/files/TLDP-Button-Hover.png?v=1699644329");
+
+  color: #7e2a10;
+}
+
+.custom-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+/* Code explanation */
+
+.implementation-note {
+  border-top: 1px solid var(--line);
+  padding-top: 25px;
+}
+
+.implementation-note h3 {
+  margin: 0 0 12px;
+  font-size: 19px;
+}
+
+.implementation-note p {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--muted);
+  margin: 0;
+}
+
+code {
+  background: #EFEAF6;
+  padding: 2px 6px;
+  border-radius: 5px;
+  color: var(--accent);
+}
+
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 760px) {
+
+  .case-header {
+    padding-top: 45px;
+  }
+
+  .case-section {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 30px 0;
+  }
+
+  .case-section > h2,
+  .case-section > .case-content {
+    grid-column: 1;
+    padding-right: 0;
+  }
+
+  .case-details {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 20px;
+    row-gap: 30px;
+    width: 100%;
+    margin-bottom: 45px;
+  }
+
+  .case-details > div {
+    width: 100%;
+    justify-self: stretch;
+    text-align: left;
+  }
+
+  .case-details span,
+  .case-details p {
+    text-align: left;
+  }
+
+  .button-comparison {
+    grid-template-columns: 1fr;
+  }
+
+  .showcase {
+    padding: 22px;
+  }
+
+  .custom-button {
+    font-size: 16px;
+    padding: 20px 34px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .case-details {
+    grid-template-columns: 1fr;
+  }
+
+  .case-content p {
+    font-size: 16px;
+  }
+}
+
+</style>
+</head>
+
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+    
+    <header class="sticky-top">
+    
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    
+        <!-- Name on left -->
+        <a class="navbar-brand" href="index.html">
+          <span class="brand-circle" aria-hidden="true"></span>
+          Amanda Cotumaccio
         </a>
-        </li>
-                <li class="nav-item">
-          <a class="nav-link" href="about.html">
-            
-            <span>About</span>
-        
-        </a>
-        </li>
-  
-         <li class="nav-item">
-          <a href="Amanda Cotumaccio Resume Fall 2026.pdf"
-             class="nav-link"
-             target="_blank"
-             rel="noopener noreferrer">
-               <span>Resume ↗&#xfe0e;</span>
+    
+        <!-- Hamburger menu -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+    
+          <span class="navbar-toggler-icon"></span>
+    
+        </button>
+    
+        <!-- Navigation links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+    
+          <ul class="navbar-nav">
+    
+            <li class="nav-item">
+              <a class="nav-link" href="projects.html">
+                <span style="font-family: 'dm-sans', sans-serif;">Projects</span>
+              </a>
+            </li>
+    
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">
+                <span style="font-family: 'dm-sans', sans-serif;">About</span>
+              </a>
+            </li>
+    
+            <li class="nav-item">
+              <a
+                href="Amanda Cotumaccio Resume Fall 2026.pdf"
+                class="nav-link"
+                target="_blank"
+                rel="noopener noreferrer">
+    
+                <span style="font-family: 'dm-sans', sans-serif;">Resume ↗&#xfe0e;</span>
+    
+              </a>
+            </li>
+    
+          </ul>
+    
+          <!-- LinkedIn -->
+          <div class="navbar-icons">
+    
+            <a
+              href="https://www.linkedin.com/in/amanda-cotumaccio-709603236/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn">
+    
+              <img
+                src="images/linkedin.png"
+                class="linkedin-icon"
+                alt="">
+    
+              <span class="linkedin-text" style="font-family: 'dm-sans', sans-serif;">
+                LinkedIn ↗&#xfe0e;
+              </span>
+    
             </a>
-          </li>
     
-        </ul>
-
-        <!-- Icons on right -->
-      <div class="navbar-icons">
-        <a href="https://www.linkedin.com/in/amanda-cotumaccio-709603236/"
-           target="_blank"
-           rel="noopener"
-           aria-label="LinkedIn">
-          <img src="images/linkedin.png" alt="">
-           <span class="linkedin-text">LinkedIn ↗&#xfe0e;</span>
-        </a>
+          </div>
     
-      </div>
-      </div>
-  
-    
-  
-  </nav>
-</header>
-
-      
-
-
-      <main class="case-study">
-
-        <!-- Hero -->
-        <section class="case-hero">
-          <div class="case-container">
-      
-            <a href="projects.html" class="all-projects-link">
-              <span>All Projects ↗&#xfe0e;</span>
-            </a>
-      
-            <h1>Delta Phi Epsilon - Pitt Chapter Website</h1>
-      
-            <p class="case-subtitle">
-              Improving navigation, content organization, and the online experience for prospective members, parents, and campus partners.
-            </p>
-      
-            <img
-              src="images/Dphie - devices.png"
-              alt="Updated DPhiE online storefront"
-              class="case-hero-image"
-            >
-      
-            <div class="case-details">
-              <div>
-                <span>ROLE</span>
-                <p>Website Designer & Manager</p>
-              </div>
-      
-              <div>
-                <span>TIMELINE</span>
-                <p>2025</p>
-              </div>
-      
-              <div>
-                <span>TOOLS</span>
-                <p>Wix, Figma, CSS</p>
-              </div>
-            </div>
-      
-          </div>
-        </section>
-      
-      
-        <!-- Background and Challenge -->
-        <section class="case-section">
-          <div class="case-container case-grid">
-      
-            <div>
-              <h2 class="case-label">BACKGROUND</h2>
-              <p>
-Delta Phi Epsilon's University of Pittsburgh chapter website serves as a central resource for prospective new members, parents, and campus partners. As the chapter's website designer and manager, I was responsible for creating and maintaining an online presence that reflected the chapter's values, activities, and member experience.
-              </p>
-            </div>
-      
-            <div>
-              <h2 class="case-label">CHALLENGE</h2>
-              <p>
-The website needed to communicate information clearly to multiple audiences while remaining easy to navigate and maintain. However, outdated and missing content, along with a confusing layout, made information difficult to find. Challenges managing the existing Squarespace site, combined with frequent leadership transitions and regular updates to chapter activities and events, highlighted the need for a more organized and sustainable website.
-              </p>
-            </div>
-      
-          </div>
-        </section>
-      
-      
-        <!-- Solution and Contribution -->
-        <section class="case-section">
-          <div class="case-container case-grid">
-      
-            <div>
-              <h2 class="case-label">SOLUTION</h2>
-              <p>
-I redesigned and migrated the website to Wix, improving navigation and organizing information to create a better overall experience for prospective members, current members, and visitors. I added a dedicated values page and event calendar to make chapter information easier to find. I also updated outdated content and established a clearer system for future leadership teams to manage and maintain the website.
-              </p>
-            </div>
-      
-            <div>
-              <h2 class="case-label">MY CONTRIBUTION</h2>
-              <p>
-            I used Figma to design page layouts and navigation before implementing the redesigned website in Wix. I regularly maintained the site's content and visuals to reflect recruitment activities, upcoming events, and leadership changes. I also established a dedicated website coordinator email account to simplify ownership transfers and ensure continuity between leadership teams.
-              </p>
-            </div>
-      
-          </div>
-        </section>
-      
-      
-        <!-- Before and After -->
-        <section class="case-section redesign-section">
-          <div class="redesign-container">
-      
-            <h2 class="case-heading">The Redesign</h2>
-      
-            <p class="case-intro">
-            A comparison of the chapter website's earlier design and the updated experience, 
-            highlighting changes to its layout, navigation, and visual presentation.
-            </p>
-
-      
-            <div class="comparison-grid">
-      
-              <div class="redesign-item">
-                <h3>Earlier Design</h3>
-                <div class="redesign-image">
-
-                  
-                 <img
-                   src="images/dphie-site-before.png"
-                   alt="Earlier DPhiE storefront design">
-              
-               
-              </div>
-              </div>
-      
-              <div class="redesign-item">
-                <h3>Updated Design</h3>
-                <div class="redesign-image">
-                  
-                  
-                 <img
-                   src="images/dphie-site-after.png"
-                   alt="Earlier DPhiE storefront design">
-               
-                </div>
-              </div>
-      
-            </div>
-      
-          </div>
-        </section>
-      
-      
-        <!-- Outcome -->
-        <!-- <section class="case-section">
-          <div class="case-container">
-            <h2 class="case-label">OUTCOME</h2>
-      
-            <p class="outcome-text">
-              The updated website established a more consistent online presence for the chapter, 
-              with clearer organization and layouts designed to support prospective members and other 
-              visitors. Its adaptable structure also helped accommodate ongoing recruitment, event, 
-              and leadership updates.
-            </p>
-          </div>
-        </section>
-       -->
-      </main>
-      
-     
-  </main>
-
-
-  <footer class="site-footer">
-    <div class="footer-container">
-  
-      <!-- Contact section -->
-      <div class="footer-top">
-        <div class="footer-contact">
-          <h2>Let's connect.</h2>
-          <p>Interested in collaborating or just saying hello?</p>
-          <a href="mailto:amandalcot@gmail.com" class="footer-email">
-            Get in touch ↗
-          </a>
         </div>
-  
-</div>
-  
-      <!-- Bottom section -->
-      <div class="footer-bottom">
-        <p>© 2026 Amanda Cotumaccio</p>
-        <p>Designed &amp; built by me</p>
+    
+      </nav>
+    
+    </header>
+    
+    
+    <!-- =========================
+         PROJECT HEADER
+    ========================= -->
+    
+    <section class="case-header">
+      <div class="case-container">
+    
+        <h1 style="text-align:left">Delta Phi Epsilon - Pitt Chapter Website</h1>
+    
+        <p class="case-subtitle">
+          Improving navigation, content organization, and the
+          online experience for prospective members, parents,
+          and campus partners.
+        </p>
+    
       </div>
-  
-    </div>
-  </footer>
+</section>
+    
+    <!-- Keep the rest of your case study here -->
+    
 
-  <!-- Bootstrap JS (if needed) -->
-     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-    <script src="assets/js/global.js"></script>
+
+<!-- =========================
+     LAPTOP MOCKUP
+========================= -->
+
+<section class="mockup-section"
+  aria-label="Delta Phi Epsilon chapter website preview">
+
+  <div class="case-container">
+
+    <div class="mockup-container">
+
+      <div class="stage">
+        <div class="laptop">
+
+          <div class="lid">
+
+            <div class="screen">
+              <div class="scroller">
+                <img src="images/dphie-site-after.png"
+                     alt="Updated Delta Phi Epsilon chapter website">
+              </div>
+              <div class="scroll-hint" aria-hidden="true">Scroll to explore ↓</div>
+            </div>
+
+          </div>
+
+          <div class="base"></div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     PROJECT INFORMATION
+========================= -->
+
+<main class="case-container">
+
+  <div class="case-details">
+
+    <div class="case-details-section">
+      <span>ROLE</span>
+      <p>Website Designer &amp; Manager</p>
+    </div>
+
+    <div class="case-details-section">
+      <span>ORGANIZATION</span>
+      <p>Delta Phi Epsilon, Pitt</p>
+    </div>
+
+    <div class="case-details-section">
+      <span>TIMELINE</span>
+      <p>2025</p>
+    </div>
+
+    <div class="case-details-section">
+      <span>TOOLS</span>
+      <p>Wix, Figma, CSS</p>
+    </div>
+
+  </div>
+
+
+  <!-- BACKGROUND -->
+
+  <section class="case-section">
+
+    <h2>BACKGROUND</h2>
+
+    <div class="case-content">
+
+      <p>
+        Delta Phi Epsilon's University of Pittsburgh
+        chapter website serves as a central resource for
+        prospective new members, parents, and campus
+        partners.
+      </p>
+
+      <p>
+        As the chapter's website designer and manager, I
+        was responsible for creating and maintaining an
+        online presence that reflected the chapter's
+        values, activities, and member experience.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- CHALLENGE -->
+
+  <section class="case-section">
+
+    <h2>CHALLENGE</h2>
+
+    <div class="case-content">
+
+      <p>
+        The website needed to communicate information
+        clearly to multiple audiences while remaining
+        easy to navigate and maintain. However, outdated
+        and missing content, along with a confusing
+        layout, made information difficult to find.
+      </p>
+
+      <p>
+        Challenges managing the existing Squarespace
+        site, combined with frequent leadership
+        transitions and regular updates to chapter
+        activities and events, highlighted the need for
+        a more organized and sustainable website.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- SOLUTION -->
+
+  <section class="case-section">
+
+    <h2>SOLUTION</h2>
+
+    <div class="case-content">
+
+      <p>
+        I redesigned and migrated the website to Wix,
+        improving navigation and organizing information
+        to create a better overall experience for
+        prospective members, current members, and
+        visitors.
+      </p>
+
+      <p>
+        I added a dedicated values page and event
+        calendar to make chapter information easier to
+        find. I also updated outdated content and
+        established a clearer system for future
+        leadership teams to manage and maintain the
+        website.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- MY CONTRIBUTION -->
+
+  <section class="case-section is-last">
+
+    <h2>MY CONTRIBUTION</h2>
+
+    <div class="case-content">
+
+      <p>
+        I used Figma to design page layouts and
+        navigation before implementing the redesigned
+        website in Wix.
+      </p>
+
+      <p>
+        I regularly maintained the site's content and
+        visuals to reflect recruitment activities,
+        upcoming events, and leadership changes.
+      </p>
+
+      <p>
+        I also established a dedicated website
+        coordinator email account to simplify ownership
+        transfers and ensure continuity between
+        leadership teams.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       BEFORE AND AFTER
+  ========================= -->
+
+  <section class="redesign-section">
+    <div class="redesign-container">
+
+      <h2 class="case-heading">The Redesign</h2>
+
+      <p class="case-intro">
+        A comparison of the chapter website's earlier design
+        and the updated experience, highlighting changes to its
+        layout, navigation, and visual presentation.
+      </p>
+
+      <div class="comparison-grid">
+
+        <div class="redesign-item">
+          <h3>Earlier Design</h3>
+          <div class="redesign-image">
+            <img
+              src="images/dphie-site-before.png"
+              alt="Earlier Delta Phi Epsilon chapter website design">
+          </div>
+        </div>
+
+        <div class="redesign-item">
+          <h3>Updated Design</h3>
+          <div class="redesign-image">
+            <img
+              src="images/dphie-site-after.png"
+              alt="Updated Delta Phi Epsilon chapter website design">
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <!-- Contact section -->
+    <div class="footer-top">
+      <div class="footer-contact">
+        <h2>Let's connect.</h2>
+        <p>Interested in collaborating or just saying hello?</p>
+        <a href="mailto:amandalcot@gmail.com" class="footer-email">
+          Get in touch ↗
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Bottom section -->
+    <div class="footer-bottom">
+      <p>© 2026 Amanda Cotumaccio</p>
+      <p>Designed &amp; built by me</p>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+  // Start case-section content where the COMPANY detail starts
+  (function () {
+    var details = document.querySelector('.case-details');
+    if (!details || details.children.length < 2) return;
+    function align() {
+      var x = details.children[1].getBoundingClientRect().left -
+              details.getBoundingClientRect().left;
+      document.documentElement.style.setProperty('--company-x', x + 'px');
+    }
+    align();
+    window.addEventListener('resize', align);
+    if (document.fonts) document.fonts.ready.then(align);
+  })();
+
+  document.querySelectorAll('.scroller').forEach(function (el) {
+    el.addEventListener('scroll', function () {
+      el.parentElement.classList.add('has-scrolled');
+    }, { once: true });
+  });
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+<script src="assets/js/global.js"></script>
+
 </body>
 </html>

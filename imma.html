@@ -279,6 +279,95 @@ h1, h2, h3 {
 
 
 /* =========================
+   SITE BANNER
+   Wide homepage screenshot that fades into the page, with the
+   "view site" button sitting on the banner itself.
+========================= */
+
+.site-banner-section {
+  padding: 10px 0 0;
+}
+
+.site-banner {
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.site-banner-img {
+  display: block;
+  position: relative;
+  aspect-ratio: 21 / 9;
+  border-radius: 18px 18px 0 0;
+  overflow: hidden;
+  background: #111;
+}
+
+.site-banner-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform .5s ease;
+}
+
+a.site-banner-img:hover img {
+  transform: scale(1.02);
+}
+
+/* Fade the bottom of the screenshot into the page background */
+.site-banner-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(244, 242, 237, 0) 45%,
+    rgba(244, 242, 237, .85) 82%,
+    var(--background) 100%
+  );
+  pointer-events: none;
+}
+
+/* Button + label pinned to the bottom-left of the banner */
+.site-banner-actions {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  z-index: 1;
+}
+
+.site-banner-actions .btn-pill {
+  padding: 0.7rem 1.6rem;
+  font-size: 1rem;
+  background: var(--accent);
+  color: var(--white);
+}
+
+.site-banner-actions .btn-pill:hover,
+.site-banner-actions .btn-pill:focus-visible {
+  background: #4E3670;
+  color: var(--white);
+}
+
+.site-banner-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+@media (max-width: 760px) {
+  .site-banner-img {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+
+/* =========================
    PROJECT METADATA
 ========================= */
 
@@ -751,37 +840,29 @@ code {
 
 
 <!-- =========================
-     LAPTOP MOCKUP
+     SITE BANNER
 ========================= -->
 
-<section class="mockup-section"
+<section class="site-banner-section"
   aria-label="IMMA storefront preview">
 
   <div class="case-container">
 
-    <div class="mockup-container">
+    <div class="site-banner">
 
-      <div class="stage">
-        <a href="https://www.theimmashop.com/" target="_blank" rel="noopener noreferrer">
-        <div class="laptop">
-
-          <div class="lid">
-
-            <div class="screen">
-              <div class="scroller">
-                <img src="images/imma-zoom.png"
-                     alt="Updated IMMA online storefront">
-              </div>
-              <div class="scroll-hint" aria-hidden="true">Scroll to explore ↓</div>
-            </div>
-
-          </div>
-
-          <div class="base"></div>
-
-        </div>
+      <a class="site-banner-img"
+         href="https://www.theimmashop.com/"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Open the live IMMA storefront in a new tab">
+        <img src="images/imma-zoom.png"
+             alt="Updated IMMA online storefront">
       </a>
 
+      <div class="site-banner-actions">
+        <a href="https://www.theimmashop.com/" class="btn-pill" target="_blank" rel="noopener noreferrer">
+          View site ↗
+        </a>
+        <span class="site-banner-label">Live site</span>
       </div>
 
     </div>
